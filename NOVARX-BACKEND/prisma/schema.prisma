@@ -1,0 +1,81 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  firstName String
+  lastName  String
+  phone     String?
+  role      Role     @default(PATIENT)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  orders        Order[]
+  prescriptions Prescription[]
+  consultations Consultation[]
+  @@map("users")
+}
+enum Role {
+  PATIENT
+  DOCTOR
+  ADMIN
+}
+model Order {
+  id            String      @id @default(uuid())
+  userId        String
+  user          User        @relation(fields: [userId], references: [id])
+  totalAmount   Decimal     @db.Decimal(10, 2)
+  status        OrderStatus @default(PLACED)
+  paymentStatus String      @default("pending")
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+  @@map("orders")
+}
+enum OrderStatus {
+  PLACED
+  CONFIRMED
+  DISPATCHED
+  DELIVERED
+  CANCELLED
+}
+model Prescription {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  fileUrl   String
+  status    String   @default("pending")
+  createdAt DateTime @default(now())
+  @@map("prescriptions")
+}
+model Consultation {
+  id         String   @id @default(uuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id])
+  doctorName String
+  specialty  String
+  status     String   @default("active")
+  createdAt  DateTime @default(now())
+  @@map("consultations")
+}
+model Product {
+  id        String   @id @default(uuid())
+  name      String
+  brand     String   @default("")
+  pack      String   @default("")
+  price     Decimal  @db.Decimal(10, 2)
+  oldPrice  Decimal? @db.Decimal(10, 2)
+  category  String
+  badge     String?
+  bg        String   @default("#eff6ff")
+  st        String   @default("#3b82f6")
+  stock     Int      @default(100)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  @@map("products")
+}
