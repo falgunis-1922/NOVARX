@@ -163,7 +163,7 @@ nav{background:linear-gradient(135deg,#0d2b8e 0%,#1a3fa8 40%,#1a3fa8 60%,#0d2b8e
 /* SIDEBAR */
 .sb-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.45);z-index:400;}.sb-ov.open{display:block;}
 .sb{position:fixed;top:0;right:-300px;left:auto;width:280px;height:100%;background:white;z-index:500;transition:right 0.3s;display:flex;flex-direction:column;overflow-y:auto;}.sb.open{right:0;}
-.sb-hd{background:white;padding:18px 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--g200);}
+.sb-hd{background:linear-gradient(135deg,#0d2b8e 0%,#1a3fa8 40%,#1a3fa8 60%,#0d2b8e 100%);padding:18px 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--g200);}
 .sb-logo{font-family:var(--fd);font-size:20px;color:var(--g800);display:flex;align-items:center;gap:10px;}
 .sb-logo img{height:36px;width:auto;object-fit:contain;}
 .sb-x{background:none;border:none;cursor:pointer;color:var(--g800);font-size:24px;line-height:1;}.sb-x:hover{color:var(--bd);}
@@ -1284,10 +1284,10 @@ section{padding:28px 32px;}
 
 </div>
 <!-- end page-offset -->
-
+<!-- toggles -->
 <div class="sb-ov" id="sbOv" onclick="toggleSB()"></div>
 <div class="sb" id="sb">
-  <div class="sb-hd"><div class="sb-logo" style="letter-spacing:-0.5px;"><img src="ChatGPT Image May 23, 2026, 02_08_18 AM.png" alt="NovaRX" style="height:36px;width:auto;object-fit:contain;"/></div><button class="sb-x" onclick="toggleSB()">×</button></div>
+  <div class="sb-hd"><div class="sb-logo" style="letter-spacing:-0.5px;"><img src="ChatGPT Image May 23, 2026, 02_08_18 AM.png" alt="NovaRX" style="height:120px;width:auto;object-fit:contain;"/></div><button class="sb-x" onclick="toggleSB()">×</button></div>
   <div class="sb-user" id="sbUser" onclick="sbUserClick()">
     <div class="sb-av" id="sbAv">?</div>
     <div><div class="sb-uname" id="sbUname">Guest user</div><div class="sb-uemail" id="sbUemail">Tap to sign in</div></div>
