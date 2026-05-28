@@ -2,10 +2,10 @@
 const express = require('express')
 const { PrismaClient } = require('@prisma/client')
 const verifyToken = require('../middleware/verifyToken')
-
+ 
 const router = express.Router()
 const prisma = new PrismaClient()
-
+ 
 // GET /api/cart — cart dekho
 router.get('/', verifyToken, async (req, res) => {
   try {
@@ -24,13 +24,13 @@ router.get('/', verifyToken, async (req, res) => {
     return res.status(500).json({ error: 'Server error.' })
   }
 })
-
+ 
 // POST /api/cart/add — item add karo
 router.post('/add', verifyToken, async (req, res) => {
   try {
     const { productId, quantity = 1 } = req.body
     if (!productId) return res.status(400).json({ error: 'Product ID required.' })
-
+ 
     let cart = await prisma.cart.findUnique({
       where: { userId: req.user.userId }
     })
@@ -39,11 +39,11 @@ router.post('/add', verifyToken, async (req, res) => {
         data: { userId: req.user.userId }
       })
     }
-
+ 
     const existingItem = await prisma.cartItem.findFirst({
       where: { cartId: cart.id, productId: String(productId) }
     })
-
+ 
     if (existingItem) {
       await prisma.cartItem.update({
         where: { id: existingItem.id },
@@ -54,7 +54,7 @@ router.post('/add', verifyToken, async (req, res) => {
         data: { cartId: cart.id, productId, quantity }
       })
     }
-
+ 
     const updatedCart = await prisma.cart.findUnique({
       where: { id: cart.id },
       include: { items: { include: { product: true } } }
@@ -65,18 +65,18 @@ router.post('/add', verifyToken, async (req, res) => {
     return res.status(500).json({ error: 'Server error.' })
   }
 })
-
+ 
 // PUT /api/cart/update — quantity update karo
 router.put('/update', verifyToken, async (req, res) => {
   try {
     const { cartItemId, quantity } = req.body
     if (!cartItemId || !quantity) return res.status(400).json({ error: 'CartItem ID and quantity required.' })
-
+ 
     if (quantity <= 0) {
       await prisma.cartItem.delete({ where: { id: cartItemId } })
       return res.status(200).json({ message: 'Item removed.' })
     }
-
+ 
     await prisma.cartItem.update({
       where: { id: cartItemId },
       data: { quantity }
@@ -87,18 +87,24 @@ router.put('/update', verifyToken, async (req, res) => {
     return res.status(500).json({ error: 'Server error.' })
   }
 })
-
+ 
 // DELETE /api/cart/remove/:cartItemId — item remove karo
 router.delete('/remove/:cartItemId', verifyToken, async (req, res) => {
-   try {
-  await prisma.cartItem.delete({
-    where: { id: cartItemId }
-  });
-} catch(e) {
-  if(e.code !== 'P2025') throw e; // ignore "not found" error
-}
+  try {
+    const { cartItemId } = req.params
+    await prisma.cartItem.delete({
+      where: { id: cartItemId }
+    })
+    return res.status(200).json({ message: 'Item removed.' })
+  } catch(e) {
+    if(e.code === 'P2025') {
+      return res.status(200).json({ message: 'Item already removed.' })
+    }
+    console.error('Remove cart error:', e)
+    return res.status(500).json({ error: 'Server error.' })
+  }
 })
-
+ 
 // DELETE /api/cart/clear — poora cart clear karo
 router.delete('/clear', verifyToken, async (req, res) => {
   try {
@@ -112,5 +118,15 @@ router.delete('/clear', verifyToken, async (req, res) => {
     return res.status(500).json({ error: 'Server error.' })
   }
 })
-
+ 
 module.exports = router
+
+
+
+
+
+
+
+
+
+
