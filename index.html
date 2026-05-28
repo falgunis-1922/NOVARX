@@ -1360,7 +1360,7 @@ async function loadProducts() {
   } catch(err) {
     console.warn('Backend not reachable, using local data:', err);
     // Fallback to local data if backend is down
-    prods = localProds;
+    prods = [];
     rHome();
     rMed();
   }
