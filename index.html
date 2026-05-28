@@ -1710,6 +1710,7 @@ function loginUser(acct,isGuest){
   goPage('profile');
   switchProfileTab('overview');
   toast('Welcome, '+acct.firstName+'!');
+  loadCart();
 }
 
 function doSignOut(){
