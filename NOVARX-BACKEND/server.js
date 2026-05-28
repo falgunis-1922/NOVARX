@@ -10,10 +10,12 @@ app.use(express.json())
 const authRoutes    = require('./routes/auth')
 const productRoutes = require('./routes/products')
 const seedRoutes    = require('./routes/seed')
+const cartRoutes = require('./routes/cart')
 
 app.use('/api/auth',     authRoutes)
 app.use('/api/products', productRoutes)
 app.use('/api/seed',     seedRoutes)
+app.use('/api/cart',     cartRoutes)   
 
 app.get('/', (req, res) => {
   res.json({ message: 'NovaRX backend is running!' })
