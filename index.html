@@ -1506,7 +1506,7 @@ async function addC(id){
     const res = await fetch(API_URL+'/api/cart/add',{
       method:'POST',
       headers:{'Content-Type':'application/json','Authorization':'Bearer '+token},
-      body: JSON.stringify({productId: id, quantity: 1})
+      body: JSON.stringify({productId: String(id), quantity: 1})
     });
     if(res.ok){
       toast(p.name+' added to cart');
