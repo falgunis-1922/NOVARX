@@ -41,7 +41,7 @@ router.post('/add', verifyToken, async (req, res) => {
     }
 
     const existingItem = await prisma.cartItem.findFirst({
-      where: { cartId: cart.id, productId }
+      where: { cartId: cart.id, productId: String(productId) }
     })
 
     if (existingItem) {
