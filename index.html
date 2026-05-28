@@ -1500,7 +1500,7 @@ function specF(s,el){document.querySelectorAll('#specBar .fpill').forEach(x=>x.c
 // - CART -
 async function addC(id){
   const token = localStorage.getItem('novarx_token');
-  if(!token){ toast('Please sign in to add to cart'); return; }
+  if(!token){ toast('Please sign in to add items to cart!'); goPage('signin'); return; }
   const p = prods.find(x=>x.id===id);
   try{
     const res = await fetch(API_URL+'/api/cart/add',{
@@ -1712,14 +1712,21 @@ function doGuestSignIn(){
 function loginUser(acct,isGuest){
   currentUser=acct;
   wishlist=acct.wishlist||[];
+  cart=[];
+  upCart();
   updateNavForUser();
   goPage('profile');
   switchProfileTab('overview');
   toast('Welcome, '+acct.firstName+'!');
+  if(!isGuest) loadCart();
 }
 
 function doSignOut(){
   currentUser=null;wishlist=[];
+  cart=[];
+  localStorage.removeItem('novarx_token');
+  localStorage.removeItem('novarx_user');
+  upCart();rCart();
   updateNavForUser();
   goPage('home');
   toast('Signed out successfully');
@@ -2641,10 +2648,3 @@ loadCart();
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
