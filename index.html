@@ -1569,6 +1569,38 @@ async function loadCart(){
   }catch(e){ console.error('loadCart error:', e); cart=[]; upCart(); }
 }
 
+function rCart(){
+  const body = document.getElementById('cartBody');
+  const ft = document.getElementById('cartFt');
+  if(!body) return;
+  if(!cart.length){
+    body.innerHTML='<div class="empty-cart"><p style="color:var(--g400);font-size:14px;text-align:center;padding:20px;">Your cart is empty.</p></div>';
+    if(ft) ft.style.display='none';
+    return;
+  }
+  body.innerHTML = cart.map(i=>`
+    <div class="ci">
+      <div class="ci-img" style="background:${i.bg||'#eff6ff'};">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="${i.st||'#3b82f6'}" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 8v8M8 12h8"/></svg>
+      </div>
+      <div class="ci-info">
+        <div class="ci-name">${i.name}</div>
+        <div class="ci-pack">${i.pack||''}</div>
+        <div class="ci-price">$${(i.price*i.qty).toFixed(2)}</div>
+        <div class="qrow">
+          <button class="qb" onclick="chQty('${i.productId}',-1)">−</button>
+          <span style="font-size:13px;min-width:20px;text-align:center;">${i.qty}</span>
+          <button class="qb" onclick="chQty('${i.productId}',1)">+</button>
+          <button class="rm" onclick="rmC('${i.productId}')">×</button>
+        </div>
+      </div>
+    </div>`).join('');
+  const total = cart.reduce((s,x)=>s+x.price*x.qty,0);
+  const cartTotal = document.getElementById('cartTotal');
+  if(cartTotal) cartTotal.textContent = '$'+total.toFixed(2);
+  if(ft) ft.style.display='block';
+}
+
 function upCart(){
   const count = cart.reduce((s,x)=>s+x.qty,0);
   document.getElementById('cartCount').textContent = count;
@@ -2609,3 +2641,10 @@ loadCart();
 </script>
 </body>
 </html>
+
+
+
+
+
+
+
