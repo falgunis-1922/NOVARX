@@ -90,13 +90,13 @@ router.put('/update', verifyToken, async (req, res) => {
 
 // DELETE /api/cart/remove/:cartItemId — item remove karo
 router.delete('/remove/:cartItemId', verifyToken, async (req, res) => {
-  try {
-    await prisma.cartItem.delete({ where: { id: req.params.cartItemId } })
-    return res.status(200).json({ message: 'Item removed from cart!' })
-  } catch (error) {
-    console.error('Remove cart error:', error)
-    return res.status(500).json({ error: 'Server error.' })
-  }
+   try {
+  await prisma.cartItem.delete({
+    where: { id: cartItemId }
+  });
+} catch(e) {
+  if(e.code !== 'P2025') throw e; // ignore "not found" error
+}
 })
 
 // DELETE /api/cart/clear — poora cart clear karo
