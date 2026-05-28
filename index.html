@@ -1499,7 +1499,7 @@ function specF(s,el){document.querySelectorAll('#specBar .fpill').forEach(x=>x.c
 
 // — CART —
 async function addC(id){
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem('novarx_token');
   if(!token){ toast('Please sign in to add to cart'); return; }
   const p = prods.find(x=>x.id===id);
   try{
@@ -1517,7 +1517,7 @@ async function addC(id){
 }
 
 async function rmC(id){
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem('novarx_token');
   if(!token) return;
   const item = cart.find(x=>x.productId===id);
   if(!item) return;
@@ -1530,7 +1530,7 @@ async function rmC(id){
 }
 
 async function chQty(id,d){
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem('novarx_token');
   if(!token) return;
   const item = cart.find(x=>x.productId===id);
   if(!item) return;
@@ -1546,7 +1546,7 @@ async function chQty(id,d){
 }
 
 async function loadCart(){
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem('novarx_token');
   if(!token){ cart=[]; upCart(); return; }
   try{
     const res = await fetch(API_URL+'/api/cart',{
