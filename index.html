@@ -1329,8 +1329,8 @@ section{padding:28px 32px;}
 <div class="toast" id="toastEl"></div>
 
 <script>
-// ── DATA ──
-// Products loaded from backend — do not hardcode here
+// -- DATA --
+// Products loaded from backend - do not hardcode here
 let prods = [];
 
 // Load products from backend API
@@ -1419,13 +1419,13 @@ const sampleOrders=[
   {id:'MC-2024-004',date:'Mar 28, 2026',status:'delivered',products:['First aid kit 42-pc','Antiseptic solution'],total:'$25.98'},
 ];
 
-// ── STATE ──
+// -- STATE --
 let cart=[],hCat='all',mCat='all',mQ='',hQ='',wishlist=[],rxFiles=[];
 let currentUser=null;
 let accounts=JSON.parse(localStorage.getItem('mc_accounts')||'[]');
 let profileTab='overview';
 
-// ── PRODUCT CARD ──
+// -- PRODUCT CARD --
 function pCard(p){
   const d=p.old?Math.round((1-p.price/p.old)*100):null;
   const inC=cart.find(c=>c.id===p.id);
@@ -1497,7 +1497,7 @@ function doMedSearch(){mQ=document.getElementById('mSearch').value.toLowerCase()
 function specF(s,el){document.querySelectorAll('#specBar .fpill').forEach(x=>x.classList.remove('on'));el.classList.add('on');rDocs(s);}
 
 
-// — CART —
+// - CART -
 async function addC(id){
   const token = localStorage.getItem('novarx_token');
   if(!token){ toast('Please sign in to add to cart'); return; }
@@ -1572,7 +1572,7 @@ function upCart(){document.getElementById('cartCount').textContent=cart.reduce((
 
 }
 
-// ── WISHLIST ──
+// -- WISHLIST --
 function tw(id){
   if(wishlist.includes(id)){wishlist=wishlist.filter(x=>x!==id);toast('Removed from wishlist');}
   else{wishlist.push(id);toast('Added to wishlist');}
@@ -1580,7 +1580,7 @@ function tw(id){
   if(currentUser){currentUser.wishlist=wishlist;saveUser();}
 }
 
-// ── AUTH ──
+// -- AUTH --
 const API_URL = 'https://novarx.onrender.com';
 
 async function doRegister(){
@@ -1600,7 +1600,7 @@ async function doRegister(){
   if(!terms){document.getElementById('rgTermsErr').textContent='Please accept terms';ok=false;}
   if(!ok)return;
 
-  // ── Real backend API call ──────────────────────────────
+  // -- Real backend API call ------------------------------
   try {
     const btn = document.querySelector('#page-register .auth-btn');
     btn.textContent = 'Creating account...';
@@ -1730,7 +1730,7 @@ function sbUserClick(){
   toggleSB();
 }
 
-// ── PROFILE TABS ──
+// -- PROFILE TABS --
 function switchProfileTab(tab){
   profileTab=tab;
   document.querySelectorAll('.profile-nav-item').forEach(i=>i.classList.remove('on'));
@@ -1756,10 +1756,10 @@ function profileOverviewHTML(){
     <h3>Personal information</h3>
     <div class="info-grid">
       <div class="info-field"><label>First name</label><p>${u.firstName}</p></div>
-      <div class="info-field"><label>Last name</label><p>${u.lastName||'—'}</p></div>
+      <div class="info-field"><label>Last name</label><p>${u.lastName||'-'}</p></div>
       <div class="info-field"><label>Email</label><p>${u.email}</p></div>
-      <div class="info-field"><label>Phone</label><p>${u.phone||'—'}</p></div>
-      <div class="info-field"><label>Member since</label><p>${u.joined||'—'}</p></div>
+      <div class="info-field"><label>Phone</label><p>${u.phone||'-'}</p></div>
+      <div class="info-field"><label>Member since</label><p>${u.joined||'-'}</p></div>
       <div class="info-field"><label>Account type</label><p>${u.isGuest?'Guest account':'Registered member'}</p></div>
     </div>
     ${u.isGuest?`<div style="margin-top:16px;padding:12px 16px;background:var(--accl);border-radius:var(--rs);font-size:13px;color:#92400e;">You're browsing as a guest. <a style="color:var(--bd);cursor:pointer;font-weight:600;" onclick="goPage('register')">Create a full account</a> to save your data.</div>`:''}
@@ -1804,7 +1804,7 @@ function profileRxHTML(){
     <div class="rx-upload-area" onclick="document.getElementById('rxUpload').click()">
       <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="1.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
       <p style="font-size:14px;font-weight:500;color:var(--bd);margin-bottom:4px;">Upload a prescription</p>
-      <p style="font-size:12px;color:var(--g400);">Click to upload — JPG, PNG or PDF accepted</p>
+      <p style="font-size:12px;color:var(--g400);">Click to upload - JPG, PNG or PDF accepted</p>
       <input type="file" id="rxUpload" accept="image/*,.pdf" style="display:none" multiple onchange="addRx(this)"/>
     </div>
     <div class="rx-list" id="rxList">${rRxList()}</div>
@@ -1870,7 +1870,7 @@ function saveSettings(){
   saveUser();updateNavForUser();toast('Profile updated!');
 }
 
-// ── NAVIGATION ──
+// -- NAVIGATION --
 function goPage(name){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('on'));
   document.getElementById('page-'+name).classList.add('on');
@@ -1891,7 +1891,7 @@ function toggleSB(){document.getElementById('sbOv').classList.toggle('open');doc
 
 function toast(msg){const t=document.getElementById('toastEl');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500);}
 
-// ── SHARED FOOTER HTML ──
+// -- SHARED FOOTER HTML --
 function footerHTML(){
   return`<div class="site-footer">
     <div class="fg">
@@ -1904,13 +1904,13 @@ function footerHTML(){
   </div>`;
 }
 
-// ── NOTIFICATIONS ──
+// -- NOTIFICATIONS --
 const notifs=[
   {id:1,unread:true,ico:'#eff6ff',icoStroke:'#3b82f6',title:'Order delivered!',desc:'Your order MC-2024-001 has been delivered. How was your experience?',time:'Just now',icoPath:'<path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>'},
-  {id:2,unread:true,ico:'#d1fae5',icoStroke:'#059669',title:'40% off — limited time!',desc:'Use code MEDI40 on your next order. Expires in 24 hours.',time:'2 hrs ago',icoPath:'<path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/>'},
+  {id:2,unread:true,ico:'#d1fae5',icoStroke:'#059669',title:'40% off - limited time!',desc:'Use code MEDI40 on your next order. Expires in 24 hours.',time:'2 hrs ago',icoPath:'<path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/>'},
   {id:3,unread:false,ico:'#fef3c7',icoStroke:'#d97706',title:'Prescription reminder',desc:'Your Metformin 500mg prescription is due for refill next week.',time:'Yesterday',icoPath:'<path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/>'},
   {id:4,unread:false,ico:'#ede9fe',icoStroke:'#7c3aed',title:'Dr. Mehta consultation summary',desc:'Your consultation notes from April 10 are ready to download.',time:'2 days ago',icoPath:'<circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>'},
-  {id:5,unread:false,ico:'#fee2e2',icoStroke:'#dc2626',title:'New health article',desc:'\"10 foods that boost your immune system\" — read it in the Healthcare section.',time:'3 days ago',icoPath:'<path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/>'},
+  {id:5,unread:false,ico:'#fee2e2',icoStroke:'#dc2626',title:'New health article',desc:'\"10 foods that boost your immune system\" - read it in the Healthcare section.',time:'3 days ago',icoPath:'<path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/>'},
 ];
 
 function rNotifs(){
@@ -1942,7 +1942,7 @@ function toggleNotif(){
   rNotifs();
 }
 
-// ── DROPDOWN MENUS ──
+// -- DROPDOWN MENUS --
 function initDropdowns(){
   document.querySelectorAll('.ndd').forEach(dd=>{
     let timer;
@@ -1959,7 +1959,7 @@ function initDropdowns(){
   });
 }
 
-// ── CAREERS DATA ──
+// -- CAREERS DATA --
 const jobs=[
   {title:'Senior Frontend Engineer',team:'Engineering',type:'Full-time',location:'Remote',posted:'Apr 15'},
   {title:'Backend Engineer (Node.js)',team:'Engineering',type:'Full-time',location:'Mumbai',posted:'Apr 12'},
@@ -1968,7 +1968,7 @@ const jobs=[
   {title:'Delivery Operations Lead',team:'Operations',type:'Full-time',location:'Mumbai',posted:'Apr 5'},
   {title:'Customer Support Specialist',team:'Operations',type:'Part-time',location:'Remote',posted:'Apr 3'},
   {title:'Growth Marketing Manager',team:'Marketing',type:'Full-time',location:'Mumbai',posted:'Mar 28'},
-  {title:'Content Writer — Health',team:'Marketing',type:'Contract',location:'Remote',posted:'Mar 25'},
+  {title:'Content Writer - Health',team:'Marketing',type:'Contract',location:'Remote',posted:'Mar 25'},
 ];
 function rJobs(){
   const el=document.getElementById('jobsList');
@@ -1997,7 +1997,7 @@ function sendContact(){
   document.getElementById('ctEmail').value='';document.getElementById('ctMsg').value='';
 }
 
-// ── ORDER DETAIL ──
+// -- ORDER DETAIL --
 const orderDetails={
   'MC-2024-001':{id:'MC-2024-001',date:'Apr 15, 2026',status:'delivered',products:[{name:'Paracetamol 500mg',pack:'Strip of 10 tablets',qty:2,price:2.49,bg:'#eff6ff',st:'#3b82f6'},{name:'Vitamin C 1000mg',pack:'60 effervescent tabs',qty:1,price:8.99,bg:'#fef3c7',st:'#d97706'}],total:'$11.48',address:'42 Park Street, Apt 3, Mumbai 400001',payment:'Card ending 4242',delivery:'Express delivery',steps:[{label:'Order placed',desc:'Your order was confirmed',time:'Apr 15, 10:02 AM',done:true},{label:'Pharmacy preparing',desc:'Pharmacist verified & packed your items',time:'Apr 15, 10:18 AM',done:true},{label:'Out for delivery',desc:'Delivery partner picked up your order',time:'Apr 15, 11:40 AM',done:true},{label:'Delivered',desc:'Order delivered to your address',time:'Apr 15, 12:55 PM',done:true}]},
   'MC-2024-002':{id:'MC-2024-002',date:'Apr 10, 2026',status:'transit',products:[{name:'Blood pressure monitor',pack:'Automatic, arm cuff',qty:1,price:49.99,bg:'#eff6ff',st:'#3b82f6'}],total:'$49.99',address:'42 Park Street, Apt 3, Mumbai 400001',payment:'UPI (GPay)',delivery:'Standard delivery',steps:[{label:'Order placed',desc:'Your order was confirmed',time:'Apr 10, 2:15 PM',done:true},{label:'Pharmacy preparing',desc:'Pharmacist verified & packed your items',time:'Apr 10, 3:00 PM',done:true},{label:'Out for delivery',desc:'Delivery partner picked up your order',time:'Apr 10, 5:30 PM',done:true},{label:'Delivered',desc:'Estimated by Apr 11, 12:00 PM',time:'Pending',done:false}]},
@@ -2122,7 +2122,7 @@ function viewOrderDetail(orderId){
   </div>`;
 }
 
-// ── FORGOT PASSWORD ──
+// -- FORGOT PASSWORD --
 function sendResetLink(){
   const email=document.getElementById('forgotEmail').value.trim();
   const err=document.getElementById('forgotEmailErr');
@@ -2158,13 +2158,13 @@ function resetPassword(){
   goPage('signin');
 }
 
-// ── INIT ──
+// -- INIT --
 loadProducts();updateNavForUser();rNotifs();updateNotifBadge();initDropdowns();loadCart();
 
 ['medicine','healthcare','doctor','ai','offers','about','signin','register','profile','careers','privacy','contact','checkout','forgot','terms'].forEach(id=>{
   const el=document.getElementById('footer-'+id);
   if(el)el.innerHTML=footerHTML();
-});// ── CHECKOUT ──
+});// -- CHECKOUT --
 let deliveryFee=3.99,promoApplied=false,selectedDel='del1',selectedPay='card';
 
 function openCheckout(){
@@ -2259,7 +2259,7 @@ function applyPromo(){
   const code=document.getElementById('coPromo').value.trim().toUpperCase();
   const msg=document.getElementById('promoMsg');
   if(code==='MEDI40'&&!promoApplied){
-    promoApplied=true;msg.style.color='var(--green)';msg.textContent='✓ Code applied — 40% discount!';
+    promoApplied=true;msg.style.color='var(--green)';msg.textContent='✓ Code applied - 40% discount!';
     document.getElementById('coDiscountRow').style.display='flex';
     updateCoTotals();
   } else if(promoApplied){msg.style.color='var(--g400)';msg.textContent='A promo code is already applied.';}
@@ -2327,46 +2327,46 @@ let aiMode='ai', sessionSeconds=0, sessionInterval=null;
 let currentDoc={ini:'AM',name:'Dr. Arjun Mehta',spec:'General Physician',color:'#1e3a8a'};
 let aiRespIdx=0, docRespIdx=0;
 
-// ── KNOWLEDGE BASE ──
+// -- KNOWLEDGE BASE --
 const aiKB={
   symptom:[
     `Let me help you understand your symptoms better.\n\nCould you please tell me:\n\n1️⃣ **When did the symptoms start?**\n2️⃣ **How severe is the discomfort?** (rate 1–10)\n3️⃣ **Any other symptoms?** (fever, nausea, fatigue)\n\nThis will help me give you a much more accurate assessment.`,
-    `Based on what you've described, this could be a **common viral infection**.\n\n✅ **What I recommend:**\n• Rest — get 7–8 hours of sleep\n• Stay hydrated — 8–10 glasses of water daily\n• Paracetamol 500mg — for fever/pain, every 6 hours\n• Avoid cold food and drinks\n\n⚠️ **See a doctor if:**\n• Fever exceeds 103°F (39.4°C)\n• Symptoms persist beyond 3 days\n• Breathing difficulty develops\n\n💬 Would you like to consult one of our doctors for a proper diagnosis?`,
-    `Your symptoms suggest possible **tension headache** or dehydration.\n\n**Common causes:**\n• Stress or poor sleep\n• Dehydration\n• Eye strain from screens\n• Skipping meals\n\n💡 **Immediate relief:**\n1. Drink 2 glasses of water right now\n2. Rest in a quiet, dimly lit room\n3. Apply a cold compress to your forehead\n4. Take Paracetamol 500mg if pain is 5+\n\n👨‍⚕️ **I'm connecting you with Dr. Arjun Mehta** for a proper check — would you like that?`
+    `Based on what you've described, this could be a **common viral infection**.\n\n✅ **What I recommend:**\n• Rest - get 7–8 hours of sleep\n• Stay hydrated - 8–10 glasses of water daily\n• Paracetamol 500mg - for fever/pain, every 6 hours\n• Avoid cold food and drinks\n\n⚠️ **See a doctor if:**\n• Fever exceeds 103°F (39.4°C)\n• Symptoms persist beyond 3 days\n• Breathing difficulty develops\n\n💬 Would you like to consult one of our doctors for a proper diagnosis?`,
+    `Your symptoms suggest possible **tension headache** or dehydration.\n\n**Common causes:**\n• Stress or poor sleep\n• Dehydration\n• Eye strain from screens\n• Skipping meals\n\n💡 **Immediate relief:**\n1. Drink 2 glasses of water right now\n2. Rest in a quiet, dimly lit room\n3. Apply a cold compress to your forehead\n4. Take Paracetamol 500mg if pain is 5+\n\n👨‍⚕️ **I'm connecting you with Dr. Arjun Mehta** for a proper check - would you like that?`
   ],
   drug:[
     `⚠️ **Drug Interaction Check**\n\n**Ibuprofen + Paracetamol:**\n✅ Generally **safe to take together**\n\nThey work through different mechanisms and are often combined for better pain relief.\n\n**Safe dosing:**\n• Paracetamol: 500–1000mg every 6–8 hrs (max 4g/day)\n• Ibuprofen: 400mg every 8 hrs **with food**\n\n⚠️ **Avoid if:** kidney disease, stomach ulcers, or blood thinners\n\n💬 Want me to check another drug combination?`,
-    `I've analysed that combination.\n\n**Result: ⚠️ Use with caution**\n\nPrecautions:\n• Don't exceed recommended doses\n• Always take with food\n• Stay well hydrated\n• Watch for stomach pain or nausea\n\n🔴 If you experience dizziness or allergic reaction — stop and seek medical help immediately.\n\n👨‍⚕️ For complex interactions, I'd recommend a quick doctor consultation.`
+    `I've analysed that combination.\n\n**Result: ⚠️ Use with caution**\n\nPrecautions:\n• Don't exceed recommended doses\n• Always take with food\n• Stay well hydrated\n• Watch for stomach pain or nausea\n\n🔴 If you experience dizziness or allergic reaction - stop and seek medical help immediately.\n\n👨‍⚕️ For complex interactions, I'd recommend a quick doctor consultation.`
   ],
   dosage:[
-    `📏 **Dosage Guide — Vitamin D3**\n\n| Group | Daily Dose |\n|-------|------------|\n| Adults (18–70) | 600–800 IU |\n| Adults 70+ | 800–1000 IU |\n| Deficiency treatment | 2000–4000 IU* |\n\n*Only under doctor supervision\n\n💡 **Best taken** with a fat-containing meal for better absorption.\n\n⚠️ Always get your Vitamin D levels tested before high-dose supplementation.`,
+    `📏 **Dosage Guide - Vitamin D3**\n\n| Group | Daily Dose |\n|-------|------------|\n| Adults (18–70) | 600–800 IU |\n| Adults 70+ | 800–1000 IU |\n| Deficiency treatment | 2000–4000 IU* |\n\n*Only under doctor supervision\n\n💡 **Best taken** with a fat-containing meal for better absorption.\n\n⚠️ Always get your Vitamin D levels tested before high-dose supplementation.`,
     `📏 **Paracetamol Dosage Guide**\n\n👤 **Adults:**\n• Standard: 500–1000mg every 4–6 hours\n• Maximum daily: **4000mg (4g)**\n\n👶 **Children:**\n• 10–15mg per kg body weight every 4–6 hours\n\n⚠️ **Critical warnings:**\n• Never exceed the daily maximum\n• Avoid alcohol\n• Check other medicines for hidden paracetamol content\n\n💬 Which medicine's dosage do you need?`
   ],
   bmi:[
     `⚖️ **BMI Calculator**\n\nTo calculate your BMI, please share:\n\n1. Your **height** (cm or feet/inches)\n2. Your **weight** (kg or lbs)\n\nI'll calculate your BMI instantly and tell you what it means for your health goals.`,
     `📊 **BMI Reference Table**\n\n| BMI Range | Category |\n|-----------|----------|\n| Below 18.5 | 🔵 Underweight |\n| 18.5 – 24.9 | ✅ Healthy weight |\n| 25.0 – 29.9 | 🟡 Overweight |\n| 30.0+ | 🔴 Obese |\n\nWould you like personalised diet or exercise recommendations based on your result?`
   ],
-  risk:[`🫀 **Health Risk Assessment**\n\nPlease answer these quick questions:\n\n1. **Age?**\n2. **Do you smoke?**\n3. **Family history** of heart disease, diabetes, or cancer?\n4. **Blood pressure** — do you know your last reading?\n5. **Exercise** — how many days per week?\n\nI'll generate a personalised risk report based on your answers.`],
+  risk:[`🫀 **Health Risk Assessment**\n\nPlease answer these quick questions:\n\n1. **Age?**\n2. **Do you smoke?**\n3. **Family history** of heart disease, diabetes, or cancer?\n4. **Blood pressure** - do you know your last reading?\n5. **Exercise** - how many days per week?\n\nI'll generate a personalised risk report based on your answers.`],
   diabetes:[`🩸 **Diabetes Guide**\n\n**Warning signs:**\n• Increased thirst & frequent urination\n• Unexplained weight loss\n• Blurred vision\n• Slow-healing wounds\n• Tingling in hands/feet\n\n**Prevention (Type 2):**\n✅ Maintain healthy weight\n✅ Exercise 150 min/week\n✅ Low sugar, high fibre diet\n✅ Regular blood sugar checks\n\n**Normal ranges:**\n• Fasting glucose: 70–99 mg/dL\n• HbA1c: below 5.7%\n\n👨‍⚕️ Would you like to consult Dr. Sneha Patel, our nutrition specialist?`],
-  heart:[`❤️ **Heart Health Guide**\n\n**Key numbers to know:**\n• Blood pressure: below 120/80 mmHg\n• LDL cholesterol: below 100 mg/dL\n• Resting heart rate: 60–100 bpm\n• BMI: 18.5–24.9\n\n**Heart-healthy habits:**\n✅ Exercise 30 min, 5 days/week\n✅ Mediterranean diet\n✅ Quit smoking\n✅ Limit alcohol to 1–2 units/day\n✅ Manage stress\n\n🚨 **Emergency signs — call 911:**\nChest pain, shortness of breath, left arm/jaw pain, sudden dizziness`],
+  heart:[`❤️ **Heart Health Guide**\n\n**Key numbers to know:**\n• Blood pressure: below 120/80 mmHg\n• LDL cholesterol: below 100 mg/dL\n• Resting heart rate: 60–100 bpm\n• BMI: 18.5–24.9\n\n**Heart-healthy habits:**\n✅ Exercise 30 min, 5 days/week\n✅ Mediterranean diet\n✅ Quit smoking\n✅ Limit alcohol to 1–2 units/day\n✅ Manage stress\n\n🚨 **Emergency signs - call 911:**\nChest pain, shortness of breath, left arm/jaw pain, sudden dizziness`],
   mental:[`🧠 **Mental Health Support**\n\nI hear you, and you're not alone. Mental health matters just as much as physical health.\n\n**Immediate techniques that help:**\n• **4-7-8 breathing:** Inhale 4s → Hold 7s → Exhale 8s\n• **5-4-3-2-1 grounding:** Name 5 things you can see, 4 touch...\n• **Physical activity:** Even a 10-min walk helps\n\n💙 **Would you like to speak with Dr. Rahul Verma**, our psychiatrist?\n\n📞 **iCall Crisis Helpline:** 9152987821 (free, confidential)`],
-  nutrition:[`🥦 **Personalised Nutrition Guide**\n\n**Your plate per meal:**\n• 🥦 50% — Vegetables & fruits\n• 🌾 25% — Whole grains\n• 🍗 25% — Lean protein\n\n**Key nutrients:**\n| Nutrient | Best sources |\n|----------|-------------|\n| Protein | Eggs, lentils, fish |\n| Iron | Spinach, lentils |\n| Calcium | Dairy, broccoli |\n| Vitamin D | Sunlight, fatty fish |\n| Omega-3 | Walnuts, flaxseed |\n\n💧 **Daily water:** 2–3 litres\n\n💬 Want a meal plan for a specific condition like diabetes or weight loss?`],
+  nutrition:[`🥦 **Personalised Nutrition Guide**\n\n**Your plate per meal:**\n• 🥦 50% - Vegetables & fruits\n• 🌾 25% - Whole grains\n• 🍗 25% - Lean protein\n\n**Key nutrients:**\n| Nutrient | Best sources |\n|----------|-------------|\n| Protein | Eggs, lentils, fish |\n| Iron | Spinach, lentils |\n| Calcium | Dairy, broccoli |\n| Vitamin D | Sunlight, fatty fish |\n| Omega-3 | Walnuts, flaxseed |\n\n💧 **Daily water:** 2–3 litres\n\n💬 Want a meal plan for a specific condition like diabetes or weight loss?`],
   general:[
-    `That's a great question! Here's what I can share:\n\n✅ **General health principles:**\n• Regular check-ups (annually)\n• Track vitals — BP, weight, blood sugar\n• Healthy sleep schedule (7–9 hours)\n• Stay physically active (150 min/week)\n• Eat a balanced diet\n\n💬 Would you like specific advice on any health area? Or shall I connect you with a doctor?`,
+    `That's a great question! Here's what I can share:\n\n✅ **General health principles:**\n• Regular check-ups (annually)\n• Track vitals - BP, weight, blood sugar\n• Healthy sleep schedule (7–9 hours)\n• Stay physically active (150 min/week)\n• Eat a balanced diet\n\n💬 Would you like specific advice on any health area? Or shall I connect you with a doctor?`,
     `I understand your concern. Here's my guidance:\n\nFor most health issues, the best approach is:\n1. **Proper diagnosis** from a qualified doctor\n2. **Lifestyle adjustments** (diet, sleep, exercise)\n3. **Medication if prescribed**\n4. **Regular follow-ups**\n\n👨‍⚕️ **Doctor recommendation:** Based on your question, I'd suggest speaking with one of our specialists. Shall I connect you?`,
-    `Good question! A few things that could help:\n\n• Get adequate sleep — it impacts everything\n• Drink enough water throughout the day\n• Move your body — even short walks count\n• Eat whole foods when possible\n• Don't ignore persistent symptoms\n\n💬 Is there something specific you'd like to explore further?`
+    `Good question! A few things that could help:\n\n• Get adequate sleep - it impacts everything\n• Drink enough water throughout the day\n• Move your body - even short walks count\n• Eat whole foods when possible\n• Don't ignore persistent symptoms\n\n💬 Is there something specific you'd like to explore further?`
   ]
 };
 
 const doctorResponses=[
   `Thank you for reaching out. To help you properly, could you tell me:\n\n• **When did these symptoms start?**\n• **Is the discomfort constant or does it come and go?**\n• **Have you taken any medication for it?**\n\nI want to make sure I fully understand your situation before giving any advice.`,
   `I understand. A few more questions:\n\n• Do you have any **known allergies** to medications?\n• Any **existing conditions** (diabetes, hypertension, asthma)?\n• Are you currently on any **regular medications**?\n• Do you smoke or consume alcohol?\n\nThis helps me rule out any contraindications.`,
-  `Thank you for that information. Based on what you've described, my **initial assessment** is:\n\n📋 **Provisional diagnosis:** Acute viral upper respiratory tract infection\n\n**My recommendations:**\n1. 💊 Paracetamol 500mg — twice daily × 3 days\n2. 🌊 Saline nasal rinse — twice daily\n3. 🍯 Warm honey-lemon water — 3× daily\n4. 🛏️ Rest 2 days and stay hydrated\n\n⚠️ **Follow up if:** Fever >103°F, breathing difficulty, or no improvement after 3 days.`,
-  `Your vitals look reasonable. Here's what I want you to monitor:\n\n• **Temperature** every 6 hours if you have fever\n• **Hydration** — urine should be pale yellow\n• **Energy levels** — note if fatigue worsens\n\nShall I write you a formal prescription?`,
-  `I'm issuing your prescription now.\n\n---\n📋 **PRESCRIPTION**\n*Dr. ${()=>currentDoc.name}*\n*NovaRX · Reg. No. MH-2019-4521*\n**Date:** ${new Date().toLocaleDateString('en-IN')}\n\n**Rx:**\n1. Tab. Paracetamol 500mg — 1 twice daily × 5 days\n2. Syp. Bromhexine 4mg/5ml — 10ml thrice daily × 5 days\n3. Cap. Vitamin C 500mg — 1 daily × 10 days\n\n**Advice:** Rest, warm fluids, avoid cold food\n**Review:** After 5 days or sooner if needed\n---\n\nYour prescription has been saved to your NovaRX profile. Would you like me to arrange delivery of these medicines?`,
-  `⚠️ **Important — please take this seriously:**\n\nThe symptoms you've described warrant closer attention. If you experience any of the following, **seek emergency care immediately:**\n• Chest tightness or difficulty breathing\n• Sudden severe headache unlike before\n• Numbness or weakness on one side of body\n• Vision changes or slurred speech\n\nFor now — can you check your blood pressure and share the reading? That will help me assess further.`,
+  `Thank you for that information. Based on what you've described, my **initial assessment** is:\n\n📋 **Provisional diagnosis:** Acute viral upper respiratory tract infection\n\n**My recommendations:**\n1. 💊 Paracetamol 500mg - twice daily × 3 days\n2. 🌊 Saline nasal rinse - twice daily\n3. 🍯 Warm honey-lemon water - 3× daily\n4. 🛏️ Rest 2 days and stay hydrated\n\n⚠️ **Follow up if:** Fever >103°F, breathing difficulty, or no improvement after 3 days.`,
+  `Your vitals look reasonable. Here's what I want you to monitor:\n\n• **Temperature** every 6 hours if you have fever\n• **Hydration** - urine should be pale yellow\n• **Energy levels** - note if fatigue worsens\n\nShall I write you a formal prescription?`,
+  `I'm issuing your prescription now.\n\n---\n📋 **PRESCRIPTION**\n*Dr. ${()=>currentDoc.name}*\n*NovaRX · Reg. No. MH-2019-4521*\n**Date:** ${new Date().toLocaleDateString('en-IN')}\n\n**Rx:**\n1. Tab. Paracetamol 500mg - 1 twice daily × 5 days\n2. Syp. Bromhexine 4mg/5ml - 10ml thrice daily × 5 days\n3. Cap. Vitamin C 500mg - 1 daily × 10 days\n\n**Advice:** Rest, warm fluids, avoid cold food\n**Review:** After 5 days or sooner if needed\n---\n\nYour prescription has been saved to your NovaRX profile. Would you like me to arrange delivery of these medicines?`,
+  `⚠️ **Important - please take this seriously:**\n\nThe symptoms you've described warrant closer attention. If you experience any of the following, **seek emergency care immediately:**\n• Chest tightness or difficulty breathing\n• Sudden severe headache unlike before\n• Numbness or weakness on one side of body\n• Vision changes or slurred speech\n\nFor now - can you check your blood pressure and share the reading? That will help me assess further.`,
   `I have everything I need for a complete assessment. Here's your consultation summary:\n\n✅ History taken\n✅ Symptoms assessed\n✅ Prescription issued\n✅ Follow-up advice given\n\nYour consultation notes are saved to your NovaRX profile.\n\n**Session ID:** CONS-${Math.floor(10000+Math.random()*90000)}\n\nIs there anything else you'd like to ask before we close?`,
-  `One last important note — please do not self-medicate beyond what I've prescribed. If symptoms persist or you feel uncertain at any point:\n\n📞 **Call us:** +1 (800) 555-MEDI (24/7)\n💬 **Chat:** Return here anytime\n\nTake care and feel better soon! 🙏\n\n— Dr. ${()=>currentDoc.name}`
+  `One last important note - please do not self-medicate beyond what I've prescribed. If symptoms persist or you feel uncertain at any point:\n\n📞 **Call us:** +1 (800) 555-MEDI (24/7)\n💬 **Chat:** Return here anytime\n\nTake care and feel better soon! 🙏\n\n- Dr. ${()=>currentDoc.name}`
 ];
 
 function getAiResponse(msg){
@@ -2595,7 +2595,7 @@ function loadAiHistory(type){
 }
 
 function aiQuick(type){
-  const q={symptom:'I have a headache and fever since yesterday',drug:'Can I take ibuprofen with paracetamol together?',dosage:'What is the right dosage for Vitamin D?',bmi:'I want to check my BMI — help me calculate it',risk:'Please do a health risk assessment for me',diabetes:'Tell me about diabetes symptoms and prevention',heart:'How can I improve my heart health?',mental:'I have been feeling anxious and stressed lately',nutrition:'Give me a personalised nutrition and diet guide'}[type];
+  const q={symptom:'I have a headache and fever since yesterday',drug:'Can I take ibuprofen with paracetamol together?',dosage:'What is the right dosage for Vitamin D?',bmi:'I want to check my BMI - help me calculate it',risk:'Please do a health risk assessment for me',diabetes:'Tell me about diabetes symptoms and prevention',heart:'How can I improve my heart health?',mental:'I have been feeling anxious and stressed lately',nutrition:'Give me a personalised nutrition and diet guide'}[type];
   if(q)sendAiMsg(q);
 }
 
