@@ -1496,25 +1496,80 @@ function doHomeSearch(){hQ=document.getElementById('hSearch').value.toLowerCase(
 function doMedSearch(){mQ=document.getElementById('mSearch').value.toLowerCase();rMed();}
 function specF(s,el){document.querySelectorAll('#specBar .fpill').forEach(x=>x.classList.remove('on'));el.classList.add('on');rDocs(s);}
 
-// ── CART ──
-function addC(id){
-  const p=prods.find(x=>x.id===id),ex=cart.find(x=>x.id===id);
-  if(ex)ex.qty++;else cart.push({...p,qty:1});
-  upCart();rCart();toast(p.name+' added to cart');
-  document.querySelectorAll('#atc'+id).forEach(b=>{b.classList.add('added');b.textContent='✓ Added';});
+
+// — CART —
+async function addC(id){
+  const token = localStorage.getItem('token');
+  if(!token){ toast('Please sign in to add to cart'); return; }
+  const p = prods.find(x=>x.id===id);
+  try{
+    const res = await fetch(API_URL+'/api/cart/add',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Authorization':'Bearer '+token},
+      body: JSON.stringify({productId: id, quantity: 1})
+    });
+    if(res.ok){
+      toast(p.name+' added to cart');
+      document.querySelectorAll('#atc'+id).forEach(b=>{b.classList.add('added');b.textContent='✓ Added';});
+      await loadCart();
+    }
+  }catch(e){ toast('Error adding to cart'); }
 }
-function rmC(id){cart=cart.filter(x=>x.id!==id);upCart();rCart();rHome();rMed();}
-function chQty(id,d){const i=cart.find(x=>x.id===id);if(!i)return;i.qty+=d;if(i.qty<=0){rmC(id);return;}upCart();rCart();}
-function upCart(){document.getElementById('cartCount').textContent=cart.reduce((s,x)=>s+x.qty,0);}
-function rCart(){
-  const b=document.getElementById('cartBody'),f=document.getElementById('cartFt');
-  if(!cart.length){b.innerHTML='<div class="empty-cart"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.2" style="display:block;margin:0 auto 10px;"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg><p style="font-size:14px;">Your cart is empty</p></div>';f.style.display='none';return;}
-  f.style.display='block';
-  document.getElementById('cartTotal').textContent='$'+cart.reduce((s,x)=>s+x.price*x.qty,0).toFixed(2);
-  b.innerHTML=cart.map(i=>`<div class="ci"><div class="ci-img" style="background:${i.bg};"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="${i.st}" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 8v8M8 12h8"/></svg></div>
-    <div class="ci-info"><div class="ci-name">${i.name}</div><div class="ci-pack">${i.pack}</div><div class="ci-price">$${(i.price*i.qty).toFixed(2)}</div>
-    <div class="qrow"><button class="qb" onclick="chQty(${i.id},-1)">−</button><span style="font-size:13px;font-weight:500;min-width:14px;text-align:center;">${i.qty}</span><button class="qb" onclick="chQty(${i.id},1)">+</button></div></div>
-    <button class="rm" onclick="rmC(${i.id})">×</button></div>`).join('');
+
+async function rmC(id){
+  const token = localStorage.getItem('token');
+  if(!token) return;
+  const item = cart.find(x=>x.productId===id);
+  if(!item) return;
+  await fetch(API_URL+'/api/cart/remove/'+item.cartItemId,{
+    method:'DELETE',
+    headers:{'Authorization':'Bearer '+token}
+  });
+  await loadCart();
+  rHome(); rMed();
+}
+
+async function chQty(id,d){
+  const token = localStorage.getItem('token');
+  if(!token) return;
+  const item = cart.find(x=>x.productId===id);
+  if(!item) return;
+  const newQty = item.qty + d;
+  if(newQty <= 0){ await rmC(id); return; }
+  await fetch(API_URL+'/api/cart/update',{
+    method:'PUT',
+    headers:{'Content-Type':'application/json','Authorization':'Bearer '+token},
+    body: JSON.stringify({cartItemId: item.cartItemId, quantity: newQty})
+  });
+  await loadCart();
+  rCart();
+}
+
+async function loadCart(){
+  const token = localStorage.getItem('token');
+  if(!token){ cart=[]; upCart(); return; }
+  try{
+    const res = await fetch(API_URL+'/api/cart',{
+      headers:{'Authorization':'Bearer '+token}
+    });
+    const data = await res.json();
+    cart = (data.items||[]).map(i=>({
+      id: i.product.id,
+      productId: i.product.id,
+      cartItemId: i.id,
+      name: i.product.name,
+      price: parseFloat(i.product.price),
+      bg: i.product.bg,
+      st: i.product.st,
+      pack: i.product.pack,
+      qty: i.quantity
+    }));
+    upCart(); rCart();
+  }catch(e){ cart=[]; upCart(); }
+}
+
+function upCart(){document.getElementById('cartCount').textContent=cart.reduce((s,x)=>s+x.qty,0);
+
 }
 
 // ── WISHLIST ──
@@ -2547,7 +2602,7 @@ function aiQuick(type){
 function sendMsg(m){sendAiMsg(m);}
 function sendChatMsg(){sendAiMsg();}
 function fillChat(t){const i=document.getElementById('aiChatIn');if(i)i.value=t;}
-
+loadCart();
 </script>
 </body>
 </html>
