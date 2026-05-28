@@ -1569,10 +1569,11 @@ async function loadCart(){
   }catch(e){ console.error('loadCart error:', e); cart=[]; upCart(); }
 }
 
-function upCart(){document.getElementById('cartCount').textContent=cart.reduce((s,x)=>s+x.qty,0);
-
+function upCart(){
+  const count = cart.reduce((s,x)=>s+x.qty,0);
+  document.getElementById('cartCount').textContent = count;
+  document.getElementById('cartCount').style.display = count > 0 ? 'flex' : 'none';
 }
-
 // -- WISHLIST --
 function tw(id){
   if(wishlist.includes(id)){wishlist=wishlist.filter(x=>x!==id);toast('Removed from wishlist');}
