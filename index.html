@@ -1341,7 +1341,7 @@ async function loadProducts() {
     if (data.products && data.products.length) {
       // Map backend format to frontend format
       prods = data.products.map((p, i) => ({
-        id:    i + 1,
+        id:    p.id,
         _id:   p.id,
         name:  p.name,
         brand: p.brand,
