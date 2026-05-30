@@ -10,35 +10,35 @@
 :root{
   --bd:#0B1020;--bm:#1E88E5;--bb:#38D9A9;--bl:#b2f0e0;--bp:#edfdf8;
   --acc:#38D9A9;--accl:#d0faf0;
-  --w:#fff;--g50:#f0f8ff;--g100:#e3f2fd;--g200:#bbdefb;--g400:#90b8d4;--g600:#1e4a6e;--g800:#0B1020;
+  --w:#fff;--g50:#f0f8ff;--g100:#e3f2fd;--g200:#bbdefb;--g400:#90b8d4;--g600:#1E88E5;--g800:#0B1020;
   --red:#ef4444;--purple:#1E88E5;--green:#38D9A9;
   --ff:'DM Sans',sans-serif;--fd:'DM Serif Display',serif;
   --r:12px;--rs:8px;--sh:0 4px 16px rgba(11,16,32,0.18);
 }
 body{font-family:var(--ff);background:var(--g50);color:var(--g800);line-height:1.6;overflow-x:hidden;}
-.promo-bar{background:linear-gradient(90deg,#0B1020,#1E88E5,#38D9A9);text-align:center;padding:7px;font-size:12px;font-weight:500;color:#ffffff;position:fixed;top:0;left:0;right:0;z-index:201;}
+.promo-bar{background:linear-gradient(90deg,#0B1020,#1E88E5,#38D9A9);text-align:center;padding:7px;font-size:12px;font-weight:500;color:#0B1020;position:fixed;top:0;left:0;right:0;z-index:201;}
 .promo-bar span{margin:0 10px;opacity:0.5;}
 nav{background:linear-gradient(135deg,#0B1020 0%,#1E88E5 50%,#38D9A9 100%);padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:72px;position:fixed;top:34px;left:0;right:0;z-index:200;box-shadow:0 4px 20px rgba(11,16,32,0.35);}
 .page-offset{padding-top:158px;}
 .logo{display:flex;align-items:center;gap:12px;font-family:var(--fd);font-size:22px;color:var(--g800);text-decoration:none;cursor:pointer;}
 .logo img{height:52px;width:auto;object-fit:contain;}
-.logo-text{font-size:20px;font-weight:700;color:var(--g800);}
+.logo-text{font-size:20px;font-weight:700;color:#0B1020;}
 .logo-text span{color:#38D9A9;}
 .logo-text span{color:#38D9A9;}
 .logo-ico{width:32px;height:32px;background:linear-gradient(135deg,#0B1020,#1E88E5,#38D9A9);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.hbg{background:none;border:none;cursor:pointer;color:white;padding:4px;display:flex;align-items:center;}
+.hbg{background:none;border:none;cursor:pointer;color:#0B1020;padding:4px;display:flex;align-items:center;}
 .nav-search{flex:1;max-width:440px;margin:0 16px;position:relative;}
-.nav-search input{width:100%;padding:14px 18px 14px 42px;border-radius:12px;border:2px solid rgba(255,255,255,0.3);background:rgba(255,255,255,0.15);color:white;font-size:13px;font-family:var(--ff);outline:none;transition:background 0.2s, border-color 0.2s;}
-.nav-search input::placeholder{color:rgba(255,255,255,0.6);}
-.nav-search input:focus{background:rgba(255,255,255,0.25);border-color:rgba(255,255,255,0.7);}
-.nav-search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--g400);}
+.nav-search input{width:100%;padding:14px 18px 14px 42px;border-radius:12px;border:2px solid rgba(0,0,0,0.2);background:rgba(255,255,255,0.35);color:#0B1020;font-size:13px;font-family:var(--ff);outline:none;transition:background 0.2s, border-color 0.2s;}
+.nav-search input::placeholder{color:rgba(11,16,32,0.55);}
+.nav-search input:focus{background:rgba(255,255,255,0.55);border-color:rgba(0,0,0,0.4);}
+.nav-search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#0B1020;}
 .nav-right{display:flex;align-items:center;gap:8px;}
-.nico{background:none;border:none;cursor:pointer;color:white;padding:6px;display:flex;align-items:center;position:relative;}
-.nico:hover{color:#38D9A9;}
+.nico{background:none;border:none;cursor:pointer;color:#0B1020;padding:6px;display:flex;align-items:center;position:relative;}
+.nico:hover{color:#0B1020;opacity:0.7;}
 .bdot{position:absolute;top:2px;right:2px;width:14px;height:14px;border-radius:50%;background:var(--acc);color:var(--g800);font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;}
 .btn{padding:7px 16px;border-radius:var(--rs);font-size:13px;font-family:var(--ff);font-weight:500;cursor:pointer;border:none;transition:all 0.2s;}
-.nav-right .bw{background:transparent;border:1px solid rgba(255,255,255,0.5);color:white;}
-.nav-right .bw:hover{background:rgba(255,255,255,0.15);}
+.nav-right .bw{background:rgba(255,255,255,0.25);border:1px solid rgba(0,0,0,0.3);color:#0B1020;}
+.nav-right .bw:hover{background:rgba(255,255,255,0.45);}
 .ba{background:linear-gradient(135deg,#1E88E5,#38D9A9);color:#ffffff;}.ba:hover{background:linear-gradient(135deg,#1565C0,#2ab894);}
 .bb2{background:var(--bb);color:white;}.bb2:hover{background:var(--bm);}
 .bd2{background:var(--bd);color:white;}.bd2:hover{background:#0B1020;}
@@ -48,10 +48,14 @@ nav{background:linear-gradient(135deg,#0B1020 0%,#1E88E5 50%,#38D9A9 100%);paddi
 .nlinner{display:flex;align-items:center;padding:0 20px;overflow-x:auto;scrollbar-width:none;}
 .nlinner::-webkit-scrollbar{display:none;}
 .ndd{position:relative;}
-.nml{display:flex;align-items:center;gap:5px;padding:12px 13px;font-size:13px;font-weight:500;color:var(--g600);white-space:nowrap;border-bottom:2px solid transparent;cursor:pointer;transition:all 0.15s;background:none;border-left:none;border-right:none;border-top:none;font-family:var(--ff);}
-.nml:hover,.nml.on{color:var(--bd);border-bottom-color:var(--bb);}
-.nml.ai-l{color:var(--purple);}.nml.ai-l:hover{color:#38D9A9;border-bottom-color:var(--purple);}
-.npill{background:var(--purple);color:white;font-size:9px;font-weight:700;padding:2px 6px;border-radius:99px;}
+.nml{display:flex;align-items:center;gap:5px;padding:10px 14px;font-size:13px;font-weight:500;color:#64748b;white-space:nowrap;border-bottom:2px solid transparent;cursor:pointer;transition:all 0.2s ease;background:none;border-left:none;border-right:none;border-top:none;font-family:var(--ff);border-radius:8px 8px 0 0;position:relative;}
+.nml:hover{color:#1E88E5;border-bottom-color:#38D9A9;background:rgba(30,136,229,0.07);}
+.nml.on{color:#0B1020;font-weight:600;border-bottom:2px solid #1E88E5;background:linear-gradient(180deg,rgba(30,136,229,0.10) 0%,rgba(56,217,169,0.08) 100%);box-shadow:inset 0 -2px 0 #1E88E5;}
+.nml.on svg{stroke:#1E88E5;}
+.nml:hover svg{stroke:#1E88E5;}
+.nml.ai-l{color:#1E88E5;}.nml.ai-l:hover{color:#0B1020;border-bottom-color:#38D9A9;}
+.nml.ai-l.on{color:#0B1020;border-bottom-color:#1E88E5;}
+.npill{background:linear-gradient(135deg,#1E88E5,#38D9A9);color:white;font-size:9px;font-weight:700;padding:2px 6px;border-radius:99px;}
 .ddm{display:none;position:absolute;top:calc(100% + 1px);left:0;background:white;border:1px solid var(--g200);border-radius:var(--r);min-width:210px;box-shadow:var(--sh);z-index:300;padding:6px 0;}
 .ndd:hover .ddm,.ddm.open{display:block;}
 .ddm a{display:block;padding:8px 16px;font-size:13px;color:var(--g600);text-decoration:none;transition:all 0.15s;cursor:pointer;}
@@ -67,7 +71,7 @@ nav{background:linear-gradient(135deg,#0B1020 0%,#1E88E5 50%,#38D9A9 100%);paddi
 .notif-section-label{padding:10px 20px 4px;font-size:11px;font-weight:600;color:var(--g400);text-transform:uppercase;letter-spacing:0.05em;}
 .ni{display:flex;gap:12px;padding:12px 20px;border-bottom:1px solid var(--g100);cursor:pointer;transition:background 0.15s;align-items:flex-start;}
 .ni:hover{background:var(--g50);}
-.ni.unread{background:#f0f7ff;}
+.ni.unread{background:#edfdf8;}
 .ni-ico{width:36px;height:36px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
 .ni-content{flex:1;}
 .ni-title{font-size:13px;font-weight:500;color:var(--g800);margin-bottom:2px;}
@@ -135,8 +139,8 @@ nav{background:linear-gradient(135deg,#0B1020 0%,#1E88E5 50%,#38D9A9 100%);paddi
 .promo-row input{flex:1;padding:9px 12px;border:1px solid var(--g200);border-radius:var(--rs);font-size:13px;font-family:var(--ff);outline:none;}
 .promo-row input:focus{border-color:var(--bb);}
 .order-confirm{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 32px;text-align:center;}
-.confirm-icon{width:80px;height:80px;border-radius:50%;background:#d1fae5;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;}
-.confirm-icon svg{stroke:#059669;}
+.confirm-icon{width:80px;height:80px;border-radius:50%;background:#d0faf0;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;}
+.confirm-icon svg{stroke:#38D9A9;}
 .order-id-badge{background:var(--bp);color:var(--bd);font-size:13px;font-weight:600;padding:6px 16px;border-radius:99px;margin:12px 0;}
 /* ORDER DETAIL TRACKING */
 .order-summary-item{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--g100);align-items:center;}
@@ -196,9 +200,9 @@ section{padding:28px 32px;}
 .pc{background:white;border:1px solid var(--g200);border-radius:var(--r);overflow:hidden;transition:all 0.2s;position:relative;}.pc:hover{box-shadow:var(--sh);transform:translateY(-2px);}
 .pc-img{height:120px;display:flex;align-items:center;justify-content:center;position:relative;}
 .brx{position:absolute;top:8px;left:8px;font-size:9px;font-weight:700;padding:3px 7px;border-radius:99px;}
-.brx.rx{background:#fee2e2;color:var(--red);}.brx.sale{background:var(--accl);color:#92400e;}
+.brx.rx{background:#e3f2fd;color:var(--red);}.brx.sale{background:var(--accl);color:#0B1020;}
 .wish{position:absolute;top:8px;right:8px;width:26px;height:26px;background:white;border:1px solid var(--g200);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.2s;}
-.wish:hover{background:#fee2e2;}.wish.on svg{fill:var(--red);stroke:var(--red);}
+.wish:hover{background:#e3f2fd;}.wish.on svg{fill:var(--red);stroke:var(--red);}
 .pc-body{padding:10px 12px;}
 .pc-brand{font-size:10px;color:var(--g400);text-transform:uppercase;letter-spacing:0.04em;}
 .pc-name{font-size:13px;font-weight:500;line-height:1.35;margin-bottom:2px;}
@@ -234,7 +238,7 @@ section{padding:28px 32px;}
 .oc h3{font-family:var(--fd);font-size:19px;margin-bottom:6px;}.oc p{font-size:12px;opacity:0.8;margin-bottom:14px;}
 .opill{display:inline-block;font-size:10px;font-weight:600;padding:3px 9px;border-radius:99px;margin-bottom:10px;}
 /* AUTH PAGES */
-.auth-wrap{min-height:calc(100vh - 120px);display:flex;align-items:center;justify-content:center;padding:40px 20px;background:linear-gradient(135deg,#edfdf8 0%,#e8f0fe 100%);}
+.auth-wrap{min-height:calc(100vh - 120px);display:flex;align-items:center;justify-content:center;padding:40px 20px;background:linear-gradient(135deg,#edfdf8 0%,#edfdf8 100%);}
 .auth-card{background:linear-gradient(135deg,#0B1020,#1E88E5,#38D9A9);border-radius:16px;border:1px solid #38D9A9;padding:36px;width:100%;max-width:420px;box-shadow:var(--sh);}
 .auth-card .auth-title{color:#fff;}
 .auth-card .auth-sub{color:rgba(255,255,255,0.75);}
@@ -244,7 +248,7 @@ section{padding:28px 32px;}
 .auth-card .auth-link{color:rgba(255,255,255,0.8);}
 .auth-card .auth-link a{color:#b2f0e0;}
 .auth-card .checkbox-row{color:rgba(255,255,255,0.85);}
-.auth-card .err-msg{color:#fca5a5;}
+.auth-card .err-msg{color:#b2f0e0;}
 .auth-card .auth-btn{background:#fff;color:#0B1020;}
 .auth-card .auth-btn:hover{background:#edfdf8;color:#0B1020;}
 .auth-card .social-btn{background:rgba(255,255,255,0.12);border-color:rgba(255,255,255,0.3);color:#fff;}
@@ -272,7 +276,7 @@ section{padding:28px 32px;}
 .social-btn:hover{background:var(--g50);border-color:var(--g400);}
 .checkbox-row{display:flex;align-items:flex-start;gap:8px;font-size:12px;color:var(--g600);}
 .checkbox-row input{margin-top:2px;cursor:pointer;accent-color:var(--bb);}
-.success-banner{background:#d1fae5;border:1px solid #6ee7b7;border-radius:var(--rs);padding:12px 16px;font-size:13px;color:#065f46;margin-bottom:16px;display:none;}
+.success-banner{background:#d0faf0;border:1px solid #b2f0e0;border-radius:var(--rs);padding:12px 16px;font-size:13px;color:#0B1020;margin-bottom:16px;display:none;}
 .success-banner.show{display:block;}
 /* PROFILE */
 .profile-layout{display:grid;grid-template-columns:240px 1fr;gap:0;min-height:calc(100vh - 120px);}
@@ -303,10 +307,10 @@ section{padding:28px 32px;}
 .order-id{font-size:13px;font-weight:600;color:var(--g800);}
 .order-date{font-size:12px;color:var(--g400);}
 .order-status{font-size:11px;font-weight:600;padding:4px 10px;border-radius:99px;}
-.os-delivered{background:#d1fae5;color:#065f46;}
-.os-transit{background:#e8f0fe;color:#1e40af;}
-.os-processing{background:var(--accl);color:#92400e;}
-.os-cancelled{background:#fee2e2;color:#991b1b;}
+.os-delivered{background:#d0faf0;color:#0B1020;}
+.os-transit{background:#edfdf8;color:#1E88E5;}
+.os-processing{background:var(--accl);color:#0B1020;}
+.os-cancelled{background:#e3f2fd;color:#0B1020;}
 .order-products{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;}
 .op-chip{background:var(--g100);border-radius:var(--rs);padding:6px 10px;font-size:12px;color:var(--g600);}
 .order-footer{display:flex;align-items:center;justify-content:space-between;padding-top:10px;border-top:1px solid var(--g100);}
@@ -318,14 +322,14 @@ section{padding:28px 32px;}
 .empty-state p{font-size:14px;margin-bottom:16px;}
 /* PRESCRIPTION */
 .rx-upload-area{border:2px dashed var(--bl);border-radius:var(--r);padding:40px;text-align:center;cursor:pointer;transition:all 0.2s;background:var(--bp);}
-.rx-upload-area:hover{border-color:var(--bb);background:#e0ecff;}
+.rx-upload-area:hover{border-color:var(--bb);background:#e3f2fd;}
 .rx-upload-area svg{display:block;margin:0 auto 12px;}
 .rx-list{margin-top:20px;}
 .rx-item{display:flex;align-items:center;gap:12px;padding:12px 16px;background:white;border:1px solid var(--g200);border-radius:var(--rs);margin-bottom:10px;}
 .rx-item svg{flex-shrink:0;}
 .rx-name{font-size:13px;font-weight:500;flex:1;}
 .rx-date{font-size:11px;color:var(--g400);}
-.rx-status{font-size:11px;font-weight:600;padding:3px 8px;border-radius:99px;background:#d1fae5;color:#065f46;}
+.rx-status{font-size:11px;font-weight:600;padding:3px 8px;border-radius:99px;background:#d0faf0;color:#0B1020;}
 /* DOCTOR */
 .doc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px;padding:24px 32px;}
 .dc{background:white;border:1px solid var(--g200);border-radius:var(--r);padding:20px;text-align:center;transition:all 0.2s;}.dc:hover{box-shadow:var(--sh);transform:translateY(-2px);}
@@ -435,34 +439,14 @@ section{padding:28px 32px;}
 <div class="nlbar">
   <div class="nlinner">
     <button class="nml on" id="nl-home" onclick="goPage('home')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>Home</button>
-    <div class="ndd">
-      <button class="nml" id="nl-medicine" onclick="goPage('medicine')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 8v8M8 12h8"/></svg>Medicines<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
-      <div class="ddm">
-        <a onclick="goPage('medicine')">Prescription medicines</a><a onclick="goPage('medicine')">Over-the-counter (OTC)</a><a onclick="goPage('medicine')">Antibiotics</a><div class="ddsep"></div><a onclick="goPage('medicine')">Pain relief</a><a onclick="goPage('medicine')">Diabetes care</a><a onclick="goPage('medicine')">Heart & blood pressure</a>
-      </div>
-    </div>
-    <div class="ndd">
-      <button class="nml" id="nl-healthcare" onclick="goPage('healthcare')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>Healthcare<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
-      <div class="ddm">
-        <a onclick="goPage('healthcare')">Health articles & tips</a><a onclick="goPage('healthcare')">Vitamins & supplements</a><a onclick="goPage('healthcare')">Medical devices</a><div class="ddsep"></div><a onclick="goPage('healthcare')">First aid & wound care</a><a onclick="goPage('healthcare')">Skincare & hygiene</a><a onclick="goPage('healthcare')">Baby & mother care</a><a onclick="goPage('healthcare')">Nutrition & fitness</a>
-      </div>
-    </div>
-    <div class="ndd">
-      <button class="nml" id="nl-doctor" onclick="goPage('doctor')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>Doctor consult<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
-      <div class="ddm">
-        <a onclick="goPage('doctor')">Book a consultation</a><a onclick="goPage('doctor')">General physician</a><a onclick="goPage('doctor')">Specialist doctors</a><div class="ddsep"></div><a onclick="goPage('doctor')">Mental health</a><a onclick="goPage('doctor')">Nutrition expert</a>
-      </div>
-    </div>
-    <div class="ndd">
-      <button class="nml ai-l" id="nl-ai" onclick="goPage('ai')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>AI health <span class="npill">New</span><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
-      <div class="ddm"><a onclick="goPage('ai')">AI symptom checker</a><a onclick="goPage('ai')">Drug interaction checker</a><a onclick="goPage('ai')">Dosage calculator</a><div class="ddsep"></div><a onclick="goPage('ai')">AI chatbot support</a></div>
-    </div>
+    <button class="nml" id="nl-medicine" onclick="goPage('medicine')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 8v8M8 12h8"/></svg>Medicines</button>
+    <button class="nml" id="nl-healthcare" onclick="goPage('healthcare')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>Healthcare</button>
+    <button class="nml" id="nl-doctor" onclick="goPage('doctor')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>Doctor consult</button>
+    <button class="nml ai-l" id="nl-ai" onclick="goPage('ai')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>AI health <span class="npill">New</span></button>
     <button class="nml" id="nl-offers" onclick="goPage('offers')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/></svg>Offers</button>
     <button class="nml" id="nl-about" onclick="goPage('about')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>About us</button>
   </div>
 </div>
-
-<!-- NOTIFICATION PANEL -->
 <div class="notif-ov" id="notifOv" onclick="toggleNotif()"></div>
 <div class="notif-panel" id="notifPanel">
   <div class="notif-hd">
@@ -510,13 +494,13 @@ section{padding:28px 32px;}
   <section>
     <div class="sec-hd"><h2>Shop by category</h2><a class="see-all" onclick="goPage('medicine')">See all →</a></div>
     <div class="cats-grid">
-      <div class="cat-card on" onclick="homeCat('all',this)"><div class="cat-ico" style="background:#e0f2fe;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0369a1" stroke-width="1.8"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></div><div class="cat-nm">All</div></div>
-      <div class="cat-card" onclick="homeCat('prescription',this)"><div class="cat-ico" style="background:#fee2e2;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="1.8"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg></div><div class="cat-nm">Prescription</div></div>
-      <div class="cat-card" onclick="homeCat('vitamins',this)"><div class="cat-ico" style="background:#e8f0fe;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#e05e00" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg></div><div class="cat-nm">Vitamins</div></div>
-      <div class="cat-card" onclick="homeCat('skincare',this)"><div class="cat-ico" style="background:#fce7f3;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#db2777" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div><div class="cat-nm">Skincare</div></div>
+      <div class="cat-card on" onclick="homeCat('all',this)"><div class="cat-ico" style="background:#edfdf8;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#1E88E5" stroke-width="1.8"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></div><div class="cat-nm">All</div></div>
+      <div class="cat-card" onclick="homeCat('prescription',this)"><div class="cat-ico" style="background:#e3f2fd;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#38D9A9" stroke-width="1.8"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg></div><div class="cat-nm">Prescription</div></div>
+      <div class="cat-card" onclick="homeCat('vitamins',this)"><div class="cat-ico" style="background:#edfdf8;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#1E88E5" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg></div><div class="cat-nm">Vitamins</div></div>
+      <div class="cat-card" onclick="homeCat('skincare',this)"><div class="cat-ico" style="background:#edfdf8;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#1E88E5" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div><div class="cat-nm">Skincare</div></div>
       <div class="cat-card" onclick="homeCat('devices',this)"><div class="cat-ico" style="background:#edfdf8;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#38D9A9" stroke-width="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="cat-nm">Devices</div></div>
-      <div class="cat-card" onclick="homeCat('firstaid',this)"><div class="cat-ico" style="background:#e8f0fe;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#38D9A9" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 8v8M8 12h8"/></svg></div><div class="cat-nm">First aid</div></div>
-      <div class="cat-card" onclick="homeCat('baby',this)"><div class="cat-ico" style="background:#e8f0fe;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#e05e00" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div><div class="cat-nm">Baby care</div></div>
+      <div class="cat-card" onclick="homeCat('firstaid',this)"><div class="cat-ico" style="background:#edfdf8;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#38D9A9" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 8v8M8 12h8"/></svg></div><div class="cat-nm">First aid</div></div>
+      <div class="cat-card" onclick="homeCat('baby',this)"><div class="cat-ico" style="background:#edfdf8;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#1E88E5" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div><div class="cat-nm">Baby care</div></div>
       <div class="cat-card" onclick="homeCat('nutrition',this)"><div class="cat-ico" style="background:#edfdf8;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#38D9A9" stroke-width="1.8"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/></svg></div><div class="cat-nm">Nutrition</div></div>
     </div>
   </section>
@@ -529,8 +513,8 @@ section{padding:28px 32px;}
     <div class="sec-hd"><h2>Special offers</h2><a class="see-all" onclick="goPage('offers')">See all →</a></div>
     <div class="offers-grid">
       <div class="oc" style="background:#0B1020;color:white;"><div class="opill" style="background:rgba(255,255,255,0.15);color:white;">Limited time</div><h3 style="margin-top:8px;">40% off<br>first order</h3><p>Use code MEDI40 at checkout</p><button class="btn ba" style="font-size:12px;" onclick="goPage('offers')">Claim offer</button></div>
-      <div class="oc" style="background:#e8f0fe;"><div class="opill" style="background:#fde68a;color:#92400e;">New</div><h3 style="color:#1a1a1a;margin-top:8px;">Subscribe &<br>save 15%</h3><p style="color:#4b5563;">Auto-refill your regular medicines</p><button class="btn bb2" style="font-size:12px;">Subscribe now</button></div>
-      <div class="oc" style="background:#e8f0fe;"><div class="opill" style="background:#b2f0e0;color:#38D9A9;">Members only</div><h3 style="color:#1a1a1a;margin-top:8px;">Free delivery<br>all month</h3><p style="color:#4b5563;">Join NovaRX Plus for unlimited free delivery</p><button class="btn" style="background:#38D9A9;color:white;font-size:12px;" onclick="goPage('offers')">Join Plus</button></div>
+      <div class="oc" style="background:#edfdf8;"><div class="opill" style="background:#b2f0e0;color:#0B1020;">New</div><h3 style="color:#0B1020;margin-top:8px;">Subscribe &<br>save 15%</h3><p style="color:#1E88E5;">Auto-refill your regular medicines</p><button class="btn bb2" style="font-size:12px;">Subscribe now</button></div>
+      <div class="oc" style="background:#edfdf8;"><div class="opill" style="background:#b2f0e0;color:#0B1020;">Members only</div><h3 style="color:#0B1020;margin-top:8px;">Free delivery<br>all month</h3><p style="color:#1E88E5;">Join NovaRX Plus for unlimited free delivery</p><button class="btn" style="background:#38D9A9;color:white;font-size:12px;" onclick="goPage('offers')">Join Plus</button></div>
     </div>
   </section>
   <div class="site-footer">
@@ -632,7 +616,7 @@ section{padding:28px 32px;}
   <div class="pg-hd"><h1>Medicines & Healthcare</h1><p>Browse 50,000+ genuine medicines and health products</p></div>
   <div style="display:flex;align-items:center;gap:10px;padding:14px 32px;background:white;border-bottom:1px solid var(--g200);flex-wrap:wrap;">
     <div style="display:flex;align-items:center;gap:8px;background:var(--g100);border-radius:8px;padding:7px 13px;flex:1;max-width:280px;">
-      <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="5" stroke="#9ca3af" stroke-width="1.2"/><path d="M10.5 10.5l3.5 3.5" stroke="#9ca3af" stroke-width="1.2" stroke-linecap="round"/></svg>
+      <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="5" stroke="#90b8d4" stroke-width="1.2"/><path d="M10.5 10.5l3.5 3.5" stroke="#90b8d4" stroke-width="1.2" stroke-linecap="round"/></svg>
       <input type="text" id="mSearch" placeholder="Search medicines..." oninput="doMedSearch()" style="border:none;background:transparent;font-size:13px;outline:none;width:100%;font-family:var(--ff);"/>
     </div>
     <button class="fpill on" onclick="medCat('all',this)">All</button>
@@ -750,7 +734,7 @@ section{padding:28px 32px;}
       </div>
       <div class="chat-msgs" id="aiChatMsgs">
         <div class="msg bot">
-          <div class="mav" style="background:linear-gradient(135deg,#38D9A9,#38D9A9);font-size:14px;">🤖</div>
+          <div class="mav" style="background:linear-gradient(135deg,#1E88E5,#38D9A9);font-size:14px;">🤖</div>
           <div>
             <div class="mbubble" style="background:var(--bp);border:1px solid var(--bl);">
               <strong style="color:var(--bd);display:block;margin-bottom:6px;">Hello! I'm NovaRX AI 👋</strong>
@@ -769,7 +753,7 @@ section{padding:28px 32px;}
       <!-- TYPING INDICATOR -->
       <div id="aiTyping" style="display:none;padding:0 18px 10px;display:none;">
         <div style="display:flex;align-items:center;gap:8px;">
-          <div class="mav" style="background:linear-gradient(135deg,#38D9A9,#38D9A9);font-size:12px;width:26px;height:26px;">🤖</div>
+          <div class="mav" style="background:linear-gradient(135deg,#1E88E5,#38D9A9);font-size:12px;width:26px;height:26px;">🤖</div>
           <div style="background:var(--g100);padding:10px 14px;border-radius:16px;border-bottom-left-radius:4px;">
             <span class="typing-dots"><span>.</span><span>.</span><span>.</span></span>
           </div>
@@ -805,11 +789,11 @@ section{padding:28px 32px;}
       </div>
       <div style="height:1px;background:var(--g200);margin:10px 0;"></div>
       <h3>Other doctors</h3>
-      <div class="ai-hi" onclick="selectDocConsult('AM','Dr. Arjun Mehta','General Physician','#1a1a1a')">👨‍⚕️ Dr. Arjun Mehta</div>
+      <div class="ai-hi" onclick="selectDocConsult('AM','Dr. Arjun Mehta','General Physician','#0B1020')">👨‍⚕️ Dr. Arjun Mehta</div>
       <div class="ai-hi" onclick="selectDocConsult('PS','Dr. Priya Sharma','Cardiologist','#38D9A9')">👩‍⚕️ Dr. Priya Sharma</div>
-      <div class="ai-hi" onclick="selectDocConsult('KR','Dr. Kavita Rao','Dermatologist','#db2777')">👩‍⚕️ Dr. Kavita Rao</div>
-      <div class="ai-hi" onclick="selectDocConsult('RV','Dr. Rahul Verma','Psychiatrist','#059669')">👨‍⚕️ Dr. Rahul Verma</div>
-      <div class="ai-hi" onclick="selectDocConsult('SP','Dr. Sneha Patel','Nutritionist','#e05e00')">👩‍⚕️ Dr. Sneha Patel</div>
+      <div class="ai-hi" onclick="selectDocConsult('KR','Dr. Kavita Rao','Dermatologist','#1E88E5')">👩‍⚕️ Dr. Kavita Rao</div>
+      <div class="ai-hi" onclick="selectDocConsult('RV','Dr. Rahul Verma','Psychiatrist','#38D9A9')">👨‍⚕️ Dr. Rahul Verma</div>
+      <div class="ai-hi" onclick="selectDocConsult('SP','Dr. Sneha Patel','Nutritionist','#1E88E5')">👩‍⚕️ Dr. Sneha Patel</div>
       <div style="height:1px;background:var(--g200);margin:10px 0;"></div>
       <h3>Session info</h3>
       <div style="font-size:12px;color:var(--g600);line-height:1.6;">
@@ -837,8 +821,8 @@ section{padding:28px 32px;}
       </div>
 
       <!-- SESSION BANNER -->
-      <div style="background:#d1fae5;border-bottom:1px solid #6ee7b7;padding:8px 18px;display:flex;align-items:center;gap:8px;font-size:12px;color:#065f46;">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <div style="background:#d0faf0;border-bottom:1px solid #b2f0e0;padding:8px 18px;display:flex;align-items:center;gap:8px;font-size:12px;color:#0B1020;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#38D9A9" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         <strong>Secure consultation</strong> — End-to-end encrypted · Session recorded for your records
         <span style="margin-left:auto;font-weight:600;" id="sessionTimer">00:00</span>
       </div>
@@ -850,7 +834,7 @@ section{padding:28px 32px;}
         <div class="msg bot">
           <div class="mav" id="docMsgAv" style="background:#0B1020;font-family:var(--fd);font-size:13px;color:white;">AM</div>
           <div>
-            <div class="mbubble" style="background:#f0f7ff;border:1px solid var(--bl);">
+            <div class="mbubble" style="background:#edfdf8;border:1px solid var(--bl);">
               <strong style="color:var(--bd);display:block;margin-bottom:6px;">Good day! I'm Dr. Arjun Mehta 👋</strong>
               I'm a General Physician with 12 years of experience. I'm here to help you today.<br><br>
               Please share your main concern or symptoms. I'll ask a few questions to understand your condition better and provide my assessment.<br><br>
@@ -865,7 +849,7 @@ section{padding:28px 32px;}
       <div id="docTyping" style="display:none;padding:0 18px 10px;">
         <div style="display:flex;align-items:center;gap:8px;">
           <div class="mav" id="docTypingAv" style="background:#0B1020;font-family:var(--fd);font-size:13px;color:white;width:30px;height:30px;">AM</div>
-          <div style="background:#f0f7ff;border:1px solid var(--bl);padding:10px 14px;border-radius:16px;border-bottom-left-radius:4px;font-size:12px;color:var(--g400);">
+          <div style="background:#edfdf8;border:1px solid var(--bl);padding:10px 14px;border-radius:16px;border-bottom-left-radius:4px;font-size:12px;color:var(--g400);">
             Dr. is typing <span class="typing-dots"><span>.</span><span>.</span><span>.</span></span>
           </div>
         </div>
@@ -892,7 +876,7 @@ section{padding:28px 32px;}
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
             Share vitals
           </button>
-          <button onclick="endConsultation()" style="flex:1;padding:7px;font-size:11px;background:#fee2e2;border:1px solid #fca5a5;border-radius:var(--rs);cursor:pointer;font-family:var(--ff);color:var(--red);display:flex;align-items:center;justify-content:center;gap:4px;">
+          <button onclick="endConsultation()" style="flex:1;padding:7px;font-size:11px;background:#e3f2fd;border:1px solid #b2f0e0;border-radius:var(--rs);cursor:pointer;font-family:var(--ff);color:var(--red);display:flex;align-items:center;justify-content:center;gap:4px;">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.68 13.31a16 16 0 003.41 2.6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7 2 2 0 011.72 2v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.42 19.42 0 014.07 9.91 2 2 0 016 7.74h3a2 2 0 011.72 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L10.68 13.31z"/></svg>
             End
           </button>
@@ -914,11 +898,11 @@ section{padding:28px 32px;}
     <div class="sec-hd" style="margin-bottom:14px;"><h2>All offers</h2></div>
     <div class="offers-list">
       <div class="oi"><div class="oi-img" style="background:#edfdf8;"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#38D9A9" stroke-width="1.2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><div class="oi-body"><div class="otag">15% off</div><h4 style="margin-top:6px;">Subscribe & save</h4><p>Set up auto-refill and save 15%</p><button class="btn bb2" style="font-size:12px;width:100%;">Subscribe</button></div></div>
-      <div class="oi"><div class="oi-img" style="background:#e8f0fe;"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#e05e00" stroke-width="1.2"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/></svg></div><div class="oi-body"><div class="otag">Free ship</div><h4 style="margin-top:6px;">Free delivery</h4><p>Free shipping on orders above $30</p><button class="btn bb2" style="font-size:12px;width:100%;" onclick="goPage('medicine')">Shop now</button></div></div>
-      <div class="oi"><div class="oi-img" style="background:#e8f0fe;"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#38D9A9" stroke-width="1.2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div><div class="oi-body"><div class="otag">MediPlus</div><h4 style="margin-top:6px;">Doctor at $5</h4><p>Consult any doctor for just $5</p><button class="btn bb2" style="font-size:12px;width:100%;" onclick="goPage('doctor')">Book now</button></div></div>
-      <div class="oi"><div class="oi-img" style="background:#d1fae5;"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="1.2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div><div class="oi-body"><div class="otag">20% off</div><h4 style="margin-top:6px;">Vitamins sale</h4><p>20% off all vitamins this week</p><button class="btn bb2" style="font-size:12px;width:100%;" onclick="goPage('medicine')">Shop vitamins</button></div></div>
-      <div class="oi"><div class="oi-img" style="background:#fee2e2;"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="1.2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg></div><div class="oi-body"><div class="otag">AI free</div><h4 style="margin-top:6px;">Free AI consult</h4><p>AI health checker free for 30 days</p><button class="btn bb2" style="font-size:12px;width:100%;" onclick="goPage('ai')">Try AI</button></div></div>
-      <div class="oi"><div class="oi-img" style="background:#fce7f3;"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#db2777" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 8v8M8 12h8"/></svg></div><div class="oi-body"><div class="otag">Bundle</div><h4 style="margin-top:6px;">First aid bundle</h4><p>Complete kit + free antiseptic</p><button class="btn bb2" style="font-size:12px;width:100%;" onclick="goPage('medicine')">Shop bundle</button></div></div>
+      <div class="oi"><div class="oi-img" style="background:#edfdf8;"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#1E88E5" stroke-width="1.2"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/></svg></div><div class="oi-body"><div class="otag">Free ship</div><h4 style="margin-top:6px;">Free delivery</h4><p>Free shipping on orders above $30</p><button class="btn bb2" style="font-size:12px;width:100%;" onclick="goPage('medicine')">Shop now</button></div></div>
+      <div class="oi"><div class="oi-img" style="background:#edfdf8;"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#38D9A9" stroke-width="1.2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div><div class="oi-body"><div class="otag">MediPlus</div><h4 style="margin-top:6px;">Doctor at $5</h4><p>Consult any doctor for just $5</p><button class="btn bb2" style="font-size:12px;width:100%;" onclick="goPage('doctor')">Book now</button></div></div>
+      <div class="oi"><div class="oi-img" style="background:#d0faf0;"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#38D9A9" stroke-width="1.2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div><div class="oi-body"><div class="otag">20% off</div><h4 style="margin-top:6px;">Vitamins sale</h4><p>20% off all vitamins this week</p><button class="btn bb2" style="font-size:12px;width:100%;" onclick="goPage('medicine')">Shop vitamins</button></div></div>
+      <div class="oi"><div class="oi-img" style="background:#e3f2fd;"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#38D9A9" stroke-width="1.2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg></div><div class="oi-body"><div class="otag">AI free</div><h4 style="margin-top:6px;">Free AI consult</h4><p>AI health checker free for 30 days</p><button class="btn bb2" style="font-size:12px;width:100%;" onclick="goPage('ai')">Try AI</button></div></div>
+      <div class="oi"><div class="oi-img" style="background:#edfdf8;"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#1E88E5" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 8v8M8 12h8"/></svg></div><div class="oi-body"><div class="otag">Bundle</div><h4 style="margin-top:6px;">First aid bundle</h4><p>Complete kit + free antiseptic</p><button class="btn bb2" style="font-size:12px;width:100%;" onclick="goPage('medicine')">Shop bundle</button></div></div>
     </div>
   </section>
   <div id="footer-offers"></div>
@@ -929,18 +913,18 @@ section{padding:28px 32px;}
   <div class="ab-hero"><h1>About NovaRX</h1><p>We're on a mission to make quality healthcare accessible, affordable, and fast for everyone.</p></div>
   <div class="ab-grid">
     <div class="abcard"><div class="ab-ico" style="background:#edfdf8;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#38D9A9" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h4>Our mission</h4><p>Making genuine medicines accessible to everyone at fair prices, delivered fast to your door.</p></div>
-    <div class="abcard"><div class="ab-ico" style="background:#d1fae5;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><h4>Founded 2019</h4><p>Started with a simple idea: nobody should wait days for medicine they need today.</p></div>
-    <div class="abcard"><div class="ab-ico" style="background:#e8f0fe;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#38D9A9" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div><h4>Expert team</h4><p>200+ licensed pharmacists and doctors ensure every order is safe and accurate.</p></div>
-    <div class="abcard"><div class="ab-ico" style="background:#e8f0fe;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e05e00" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><h4>1M+ customers</h4><p>Trusted by over one million customers for reliable healthcare delivery.</p></div>
+    <div class="abcard"><div class="ab-ico" style="background:#d0faf0;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#38D9A9" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><h4>Founded 2019</h4><p>Started with a simple idea: nobody should wait days for medicine they need today.</p></div>
+    <div class="abcard"><div class="ab-ico" style="background:#edfdf8;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#38D9A9" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div><h4>Expert team</h4><p>200+ licensed pharmacists and doctors ensure every order is safe and accurate.</p></div>
+    <div class="abcard"><div class="ab-ico" style="background:#edfdf8;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E88E5" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><h4>1M+ customers</h4><p>Trusted by over one million customers for reliable healthcare delivery.</p></div>
   </div>
   <section style="padding-top:0;"><div class="sec-hd"><h2>Meet the team</h2></div>
     <div class="team-grid">
       <div class="tc"><div class="tav" style="background:#0B1020;">AR</div><div class="tc-name">Dr. Arjun Rao</div><div class="tc-role">CEO & Co-founder</div></div>
       <div class="tc"><div class="tav" style="background:#38D9A9;">PS</div><div class="tc-name">Priya Sharma</div><div class="tc-role">Chief Pharmacist</div></div>
-      <div class="tc"><div class="tav" style="background:#059669;">KM</div><div class="tc-name">Kavya Mehta</div><div class="tc-role">Head of Technology</div></div>
-      <div class="tc"><div class="tav" style="background:#e05e00;">RV</div><div class="tc-name">Rohan Verma</div><div class="tc-role">Head of Operations</div></div>
-      <div class="tc"><div class="tav" style="background:#db2777;">SP</div><div class="tc-name">Sneha Patel</div><div class="tc-role">Medical Director</div></div>
-      <div class="tc"><div class="tav" style="background:#dc2626;">AK</div><div class="tc-name">Arun Kumar</div><div class="tc-role">Head of Delivery</div></div>
+      <div class="tc"><div class="tav" style="background:#38D9A9;">KM</div><div class="tc-name">Kavya Mehta</div><div class="tc-role">Head of Technology</div></div>
+      <div class="tc"><div class="tav" style="background:#1E88E5;">RV</div><div class="tc-name">Rohan Verma</div><div class="tc-role">Head of Operations</div></div>
+      <div class="tc"><div class="tav" style="background:#1E88E5;">SP</div><div class="tc-name">Sneha Patel</div><div class="tc-role">Medical Director</div></div>
+      <div class="tc"><div class="tav" style="background:#38D9A9;">AK</div><div class="tc-name">Arun Kumar</div><div class="tc-role">Head of Delivery</div></div>
     </div>
   </section>
   <div id="footer-about"></div>
@@ -1070,8 +1054,8 @@ section{padding:28px 32px;}
       </div>
       <div id="forgotStep2" style="display:none;">
         <div style="text-align:center;margin-bottom:20px;">
-          <div style="width:60px;height:60px;background:#d1fae5;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          <div style="width:60px;height:60px;background:#d0faf0;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#38D9A9" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
           </div>
           <p style="font-size:14px;color:var(--g600);">We've sent a reset link to<br><strong style="color:var(--g800);" id="forgotSentTo">your email</strong></p>
         </div>
@@ -1158,7 +1142,7 @@ section{padding:28px 32px;}
 <div class="page" id="page-checkout">
   <div id="checkoutConfirmed" style="display:none;">
     <div class="order-confirm">
-      <div class="confirm-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <div class="confirm-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#38D9A9" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div>
       <h1 style="font-family:var(--fd);font-size:30px;color:var(--bd);margin-bottom:8px;">Order placed!</h1>
       <p style="font-size:15px;color:var(--g600);max-width:400px;margin-bottom:12px;">Thank you for your order. We'll have it delivered to your door shortly.</p>
       <div class="order-id-badge" id="confirmedOrderId">Order #MC-2026-005</div>
@@ -1175,7 +1159,7 @@ section{padding:28px 32px;}
     <div class="pg-hd" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
       <div><h1>Checkout</h1><p>Complete your order securely</p></div>
       <div style="display:flex;gap:8px;align-items:center;">
-        <div style="display:flex;align-items:center;gap:6px;"><div style="width:26px;height:26px;border-radius:50%;background:#059669;color:white;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;">✓</div><span style="font-size:13px;color:rgba(255,255,255,0.8);">Cart</span></div>
+        <div style="display:flex;align-items:center;gap:6px;"><div style="width:26px;height:26px;border-radius:50%;background:#38D9A9;color:white;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;">✓</div><span style="font-size:13px;color:rgba(255,255,255,0.8);">Cart</span></div>
         <div style="width:28px;height:2px;background:rgba(255,255,255,0.3);"></div>
         <div style="display:flex;align-items:center;gap:6px;"><div style="width:26px;height:26px;border-radius:50%;background:var(--bb);color:white;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;" id="coStep2">2</div><span style="font-size:13px;color:rgba(255,255,255,0.8);">Delivery</span></div>
         <div style="width:28px;height:2px;background:rgba(255,255,255,0.3);"></div>
@@ -1238,8 +1222,8 @@ section{padding:28px 32px;}
             </div>
           </div>
           <div id="payCodFields" style="display:none;">
-            <div style="background:#d1fae5;border-radius:var(--rs);padding:14px 16px;font-size:13px;color:#065f46;display:flex;gap:10px;align-items:flex-start;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" style="flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg>
+            <div style="background:#d0faf0;border-radius:var(--rs);padding:14px 16px;font-size:13px;color:#0B1020;display:flex;gap:10px;align-items:flex-start;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38D9A9" stroke-width="2" style="flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg>
               Pay in cash when your order arrives. Please keep exact change ready. Available on orders up to $200.
             </div>
           </div>
@@ -1248,7 +1232,7 @@ section{padding:28px 32px;}
             Your payment is encrypted and secure. We never store card details.
           </div>
           <div class="err-msg" id="coPayErr" style="margin-top:8px;"></div>
-          <button onclick="placeOrder()" style="width:100%;padding:13px;margin-top:16px;background:var(--green);color:white;font-size:15px;font-weight:600;border-radius:var(--rs);border:none;font-family:var(--ff);cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='#2ebc99'" onmouseout="this.style.background='var(--green)'">
+          <button onclick="placeOrder()" style="width:100%;padding:13px;margin-top:16px;background:var(--green);color:white;font-size:15px;font-weight:600;border-radius:var(--rs);border:none;font-family:var(--ff);cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='#38D9A9'" onmouseout="this.style.background='var(--green)'">
             Place order →
           </button>
         </div>
@@ -1369,42 +1353,42 @@ async function loadProducts() {
 // Local fallback data (used if backend is offline)
 const localProds = [
   {id:1,name:'Paracetamol 500mg',brand:'PharmaCo',pack:'Strip of 10 tablets',price:2.49,old:null,cat:'prescription',badge:'rx',bg:'#edfdf8',st:'#38D9A9'},
-  {id:2,name:'Ibuprofen 400mg',brand:'MediGen',pack:'Strip of 15 tablets',price:3.99,old:5.49,cat:'prescription',badge:'sale',bg:'#fee2e2',st:'#dc2626'},
+  {id:2,name:'Ibuprofen 400mg',brand:'MediGen',pack:'Strip of 15 tablets',price:3.99,old:5.49,cat:'prescription',badge:'sale',bg:'#edfdf8',st:'#1E88E5'},
   {id:3,name:'Amoxicillin 500mg',brand:'CureGen',pack:'Strip of 10 capsules',price:6.49,old:null,cat:'prescription',badge:'rx',bg:'#edfdf8',st:'#38D9A9'},
   {id:4,name:'Metformin 500mg',brand:'DiaCare',pack:'30 tablets',price:4.99,old:6.99,cat:'prescription',badge:'sale',bg:'#edfdf8',st:'#38D9A9'},
-  {id:5,name:'Vitamin C 1000mg',brand:'VitaPlus',pack:'60 effervescent tabs',price:8.99,old:11.99,cat:'vitamins',badge:'sale',bg:'#e8f0fe',st:'#e05e00'},
-  {id:6,name:'Vitamin D3 2000IU',brand:'SunHealth',pack:'90 softgel capsules',price:12.49,old:null,cat:'vitamins',badge:null,bg:'#e8f0fe',st:'#e05e00'},
-  {id:7,name:'Omega-3 Fish Oil',brand:'OceanCare',pack:'60 capsules',price:14.99,old:18.99,cat:'vitamins',badge:'sale',bg:'#e8f0fe',st:'#e05e00'},
-  {id:8,name:'Moisturizing cream',brand:'DermaCare',pack:'200ml tube',price:14.99,old:19.99,cat:'skincare',badge:'sale',bg:'#fce7f3',st:'#db2777'},
-  {id:9,name:'SPF 50+ sunscreen',brand:'SkinShield',pack:'100ml spray',price:18.99,old:null,cat:'skincare',badge:null,bg:'#fce7f3',st:'#db2777'},
+  {id:5,name:'Vitamin C 1000mg',brand:'VitaPlus',pack:'60 effervescent tabs',price:8.99,old:11.99,cat:'vitamins',badge:'sale',bg:'#edfdf8',st:'#38D9A9'},
+  {id:6,name:'Vitamin D3 2000IU',brand:'SunHealth',pack:'90 softgel capsules',price:12.49,old:null,cat:'vitamins',badge:null,bg:'#edfdf8',st:'#38D9A9'},
+  {id:7,name:'Omega-3 Fish Oil',brand:'OceanCare',pack:'60 capsules',price:14.99,old:18.99,cat:'vitamins',badge:'sale',bg:'#edfdf8',st:'#38D9A9'},
+  {id:8,name:'Moisturizing cream',brand:'DermaCare',pack:'200ml tube',price:14.99,old:19.99,cat:'skincare',badge:'sale',bg:'#edfdf8',st:'#38D9A9'},
+  {id:9,name:'SPF 50+ sunscreen',brand:'SkinShield',pack:'100ml spray',price:18.99,old:null,cat:'skincare',badge:null,bg:'#edfdf8',st:'#38D9A9'},
   {id:10,name:'Digital thermometer',brand:'MediTech',pack:'Fast read, waterproof',price:14.99,old:null,cat:'devices',badge:null,bg:'#edfdf8',st:'#38D9A9'},
   {id:11,name:'Blood pressure monitor',brand:'CardioCheck',pack:'Automatic, arm cuff',price:49.99,old:64.99,cat:'devices',badge:'sale',bg:'#edfdf8',st:'#38D9A9'},
   {id:12,name:'Pulse oximeter',brand:'OxyMed',pack:'Fingertip with display',price:19.99,old:null,cat:'devices',badge:null,bg:'#edfdf8',st:'#38D9A9'},
-  {id:13,name:'First aid kit 42-pc',brand:'SafeKit',pack:'Complete family kit',price:19.99,old:23.99,cat:'firstaid',badge:'sale',bg:'#e8f0fe',st:'#38D9A9'},
-  {id:14,name:'Antiseptic solution',brand:'CleanGuard',pack:'500ml bottle',price:5.99,old:null,cat:'firstaid',badge:null,bg:'#e8f0fe',st:'#38D9A9'},
-  {id:15,name:'Baby vitamin drops',brand:'TinyHealth',pack:'30ml dropper',price:9.99,old:null,cat:'baby',badge:null,bg:'#e8f0fe',st:'#e05e00'},
-  {id:16,name:'Baby diaper cream',brand:'SoftCare',pack:'100g tube',price:7.49,old:9.99,cat:'baby',badge:'sale',bg:'#fce7f3',st:'#db2777'},
+  {id:13,name:'First aid kit 42-pc',brand:'SafeKit',pack:'Complete family kit',price:19.99,old:23.99,cat:'firstaid',badge:'sale',bg:'#edfdf8',st:'#38D9A9'},
+  {id:14,name:'Antiseptic solution',brand:'CleanGuard',pack:'500ml bottle',price:5.99,old:null,cat:'firstaid',badge:null,bg:'#edfdf8',st:'#38D9A9'},
+  {id:15,name:'Baby vitamin drops',brand:'TinyHealth',pack:'30ml dropper',price:9.99,old:null,cat:'baby',badge:null,bg:'#edfdf8',st:'#38D9A9'},
+  {id:16,name:'Baby diaper cream',brand:'SoftCare',pack:'100g tube',price:7.49,old:9.99,cat:'baby',badge:'sale',bg:'#edfdf8',st:'#38D9A9'},
   {id:17,name:'Protein powder',brand:'NutriMax',pack:'1kg vanilla pouch',price:34.99,old:44.99,cat:'nutrition',badge:'sale',bg:'#edfdf8',st:'#38D9A9'},
-  {id:18,name:'Multivitamin gummies',brand:'GummiHealth',pack:'60 gummies',price:12.99,old:null,cat:'nutrition',badge:null,bg:'#e8f0fe',st:'#e05e00'},
+  {id:18,name:'Multivitamin gummies',brand:'GummiHealth',pack:'60 gummies',price:12.99,old:null,cat:'nutrition',badge:null,bg:'#edfdf8',st:'#38D9A9'},
 ];
 
 const docsList = [
-  {name:'Dr. Arjun Mehta',spec:'General Physician',exp:'12 yrs',rat:'4.9',fee:'$15',col:'#1a1a1a',ini:'AM'},
-  {name:'Dr. Priya Sharma',spec:'Cardiologist',exp:'15 yrs',rat:'4.8',fee:'$30',col:'#38D9A9',ini:'PS'},
-  {name:'Dr. Kavita Rao',spec:'Dermatologist',exp:'8 yrs',rat:'4.7',fee:'$20',col:'#db2777',ini:'KR'},
-  {name:'Dr. Rahul Verma',spec:'Psychiatrist',exp:'10 yrs',rat:'4.9',fee:'$25',col:'#059669',ini:'RV'},
-  {name:'Dr. Sneha Patel',spec:'Nutritionist',exp:'6 yrs',rat:'4.6',fee:'$18',col:'#e05e00',ini:'SP'},
-  {name:'Dr. Arun Kumar',spec:'Orthopedic',exp:'14 yrs',rat:'4.8',fee:'$28',col:'#dc2626',ini:'AK'},
-  {name:'Dr. Nisha Gupta',spec:'Gynecologist',exp:'11 yrs',rat:'4.9',fee:'$22',col:'#0369a1',ini:'NG'},
-  {name:'Dr. Vikram Singh',spec:'General Physician',exp:'9 yrs',rat:'4.7',fee:'$12',col:'#065f46',ini:'VS'},
+  {name:'Dr. Arjun Mehta',spec:'General Physician',exp:'12 yrs',rat:'4.9',fee:'$15',col:'#0B1020',ini:'AM'},
+  {name:'Dr. Priya Sharma',spec:'Cardiologist',exp:'15 yrs',rat:'4.8',fee:'$30',col:'#1E88E5',ini:'PS'},
+  {name:'Dr. Kavita Rao',spec:'Dermatologist',exp:'8 yrs',rat:'4.7',fee:'$20',col:'#1E88E5',ini:'KR'},
+  {name:'Dr. Rahul Verma',spec:'Psychiatrist',exp:'10 yrs',rat:'4.9',fee:'$25',col:'#1E88E5',ini:'RV'},
+  {name:'Dr. Sneha Patel',spec:'Nutritionist',exp:'6 yrs',rat:'4.6',fee:'$18',col:'#1E88E5',ini:'SP'},
+  {name:'Dr. Arun Kumar',spec:'Orthopedic',exp:'14 yrs',rat:'4.8',fee:'$28',col:'#1E88E5',ini:'AK'},
+  {name:'Dr. Nisha Gupta',spec:'Gynecologist',exp:'11 yrs',rat:'4.9',fee:'$22',col:'#1E88E5',ini:'NG'},
+  {name:'Dr. Vikram Singh',spec:'General Physician',exp:'9 yrs',rat:'4.7',fee:'$12',col:'#0B1020',ini:'VS'},
 ];
 const articles=[
-  {tag:'Nutrition',title:'10 foods that boost your immune system naturally',desc:'Simple dietary changes that can strengthen your body\'s defenses.',bg:'#d1fae5',sc:'#059669',date:'Apr 18'},
-  {tag:'Mental health',title:'Managing stress: simple techniques that actually work',desc:'Evidence-backed strategies for reducing everyday stress and anxiety.',bg:'#e8f0fe',sc:'#38D9A9',date:'Apr 15'},
-  {tag:'Heart health',title:'5 habits to keep your heart healthy at any age',desc:'Small lifestyle changes that significantly reduce cardiovascular risk.',bg:'#fee2e2',sc:'#dc2626',date:'Apr 12'},
-  {tag:'Diabetes',title:'Understanding blood sugar: what the numbers really mean',desc:'A simple guide to reading and interpreting your glucose levels.',bg:'#e8f0fe',sc:'#e05e00',date:'Apr 10'},
+  {tag:'Nutrition',title:'10 foods that boost your immune system naturally',desc:'Simple dietary changes that can strengthen your body\'s defenses.',bg:'#d0faf0',sc:'#38D9A9',date:'Apr 18'},
+  {tag:'Mental health',title:'Managing stress: simple techniques that actually work',desc:'Evidence-backed strategies for reducing everyday stress and anxiety.',bg:'#edfdf8',sc:'#38D9A9',date:'Apr 15'},
+  {tag:'Heart health',title:'5 habits to keep your heart healthy at any age',desc:'Small lifestyle changes that significantly reduce cardiovascular risk.',bg:'#e3f2fd',sc:'#38D9A9',date:'Apr 12'},
+  {tag:'Diabetes',title:'Understanding blood sugar: what the numbers really mean',desc:'A simple guide to reading and interpreting your glucose levels.',bg:'#edfdf8',sc:'#38D9A9',date:'Apr 10'},
   {tag:'Exercise',title:'The 20-minute workout that fits any schedule',desc:'A quick but effective routine backed by fitness experts.',bg:'#edfdf8',sc:'#38D9A9',date:'Apr 8'},
-  {tag:'Sleep',title:'Why you\'re not sleeping well and how to fix it',desc:'Science-based tips to improve your sleep quality tonight.',bg:'#fce7f3',sc:'#db2777',date:'Apr 5'},
+  {tag:'Sleep',title:'Why you\'re not sleeping well and how to fix it',desc:'Science-based tips to improve your sleep quality tonight.',bg:'#edfdf8',sc:'#38D9A9',date:'Apr 5'},
 ];
 const tips=[
   {ico:'💧',title:'Stay hydrated',desc:'Drink 8 glasses of water daily to maintain energy and focus.'},
@@ -1847,7 +1831,7 @@ function profileOverviewHTML(){
       <div class="info-field"><label>Member since</label><p>${u.joined||'-'}</p></div>
       <div class="info-field"><label>Account type</label><p>${u.isGuest?'Guest account':'Registered member'}</p></div>
     </div>
-    ${u.isGuest?`<div style="margin-top:16px;padding:12px 16px;background:var(--accl);border-radius:var(--rs);font-size:13px;color:#92400e;">You're browsing as a guest. <a style="color:var(--bd);cursor:pointer;font-weight:600;" onclick="goPage('register')">Create a full account</a> to save your data.</div>`:''}
+    ${u.isGuest?`<div style="margin-top:16px;padding:12px 16px;background:var(--accl);border-radius:var(--rs);font-size:13px;color:#0B1020;">You're browsing as a guest. <a style="color:var(--bd);cursor:pointer;font-weight:600;" onclick="goPage('register')">Create a full account</a> to save your data.</div>`:''}
   </div>
   <div class="profile-section">
     <h3>Recent orders</h3>
@@ -1860,7 +1844,7 @@ function profileOrdersHTML(){
   const u=currentUser;
   return`<div class="profile-section">
     <h3>My orders (${u.orders?u.orders.length:0})</h3>
-    ${u.orders&&u.orders.length?u.orders.map(o=>orderHTML(o)).join(''):'<div class="empty-state"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg><p>No orders yet.</p><button class="btn bb2" onclick="goPage(\'medicine\')">Start shopping</button></div>'}
+    ${u.orders&&u.orders.length?u.orders.map(o=>orderHTML(o)).join(''):'<div class="empty-state"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#90b8d4" stroke-width="1.2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg><p>No orders yet.</p><button class="btn bb2" onclick="goPage(\'medicine\')">Start shopping</button></div>'}
   </div>`;
 }
 
@@ -1878,7 +1862,7 @@ function orderHTML(o){
 }
 
 function profileWishlistHTML(){
-  if(!wishlist.length)return`<div class="profile-section"><h3>My wishlist</h3><div class="empty-state"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg><p>Your wishlist is empty.</p><button class="btn bb2" onclick="goPage('medicine')">Browse products</button></div></div>`;
+  if(!wishlist.length)return`<div class="profile-section"><h3>My wishlist</h3><div class="empty-state"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#90b8d4" stroke-width="1.2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg><p>Your wishlist is empty.</p><button class="btn bb2" onclick="goPage('medicine')">Browse products</button></div></div>`;
   const wProds=prods.filter(p=>wishlist.includes(p.id));
   return`<div class="profile-section"><h3>My wishlist (${wProds.length})</h3><div class="wishlist-grid">${wProds.map(pCard).join('')}</div></div>`;
 }
@@ -1992,10 +1976,10 @@ function footerHTML(){
 // -- NOTIFICATIONS --
 const notifs=[
   {id:1,unread:true,ico:'#edfdf8',icoStroke:'#38D9A9',title:'Order delivered!',desc:'Your order MC-2024-001 has been delivered. How was your experience?',time:'Just now',icoPath:'<path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>'},
-  {id:2,unread:true,ico:'#d1fae5',icoStroke:'#059669',title:'40% off - limited time!',desc:'Use code MEDI40 on your next order. Expires in 24 hours.',time:'2 hrs ago',icoPath:'<path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/>'},
-  {id:3,unread:false,ico:'#e8f0fe',icoStroke:'#e05e00',title:'Prescription reminder',desc:'Your Metformin 500mg prescription is due for refill next week.',time:'Yesterday',icoPath:'<path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/>'},
-  {id:4,unread:false,ico:'#e8f0fe',icoStroke:'#38D9A9',title:'Dr. Mehta consultation summary',desc:'Your consultation notes from April 10 are ready to download.',time:'2 days ago',icoPath:'<circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>'},
-  {id:5,unread:false,ico:'#fee2e2',icoStroke:'#dc2626',title:'New health article',desc:'\"10 foods that boost your immune system\" - read it in the Healthcare section.',time:'3 days ago',icoPath:'<path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/>'},
+  {id:2,unread:true,ico:'#d0faf0',icoStroke:'#38D9A9',title:'40% off - limited time!',desc:'Use code MEDI40 on your next order. Expires in 24 hours.',time:'2 hrs ago',icoPath:'<path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/>'},
+  {id:3,unread:false,ico:'#edfdf8',icoStroke:'#1E88E5',title:'Prescription reminder',desc:'Your Metformin 500mg prescription is due for refill next week.',time:'Yesterday',icoPath:'<path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/>'},
+  {id:4,unread:false,ico:'#edfdf8',icoStroke:'#38D9A9',title:'Dr. Mehta consultation summary',desc:'Your consultation notes from April 10 are ready to download.',time:'2 days ago',icoPath:'<circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>'},
+  {id:5,unread:false,ico:'#e3f2fd',icoStroke:'#38D9A9',title:'New health article',desc:'\"10 foods that boost your immune system\" - read it in the Healthcare section.',time:'3 days ago',icoPath:'<path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/>'},
 ];
 
 function rNotifs(){
@@ -2063,8 +2047,8 @@ function rJobs(){
       <div class="job-title">${j.title}</div>
       <div class="job-meta">
         <span class="job-tag">${j.team}</span>
-        <span class="job-tag" style="background:#e8f0fe;color:#92400e;">${j.type}</span>
-        <span class="job-tag" style="background:#d1fae5;color:#065f46;">${j.location}</span>
+        <span class="job-tag" style="background:#edfdf8;color:#0B1020;">${j.type}</span>
+        <span class="job-tag" style="background:#d0faf0;color:#0B1020;">${j.location}</span>
         <span style="font-size:11px;color:var(--g400);">Posted ${j.posted}</span>
       </div>
     </div>
@@ -2084,10 +2068,10 @@ function sendContact(){
 
 // -- ORDER DETAIL --
 const orderDetails={
-  'MC-2024-001':{id:'MC-2024-001',date:'Apr 15, 2026',status:'delivered',products:[{name:'Paracetamol 500mg',pack:'Strip of 10 tablets',qty:2,price:2.49,bg:'#edfdf8',st:'#38D9A9'},{name:'Vitamin C 1000mg',pack:'60 effervescent tabs',qty:1,price:8.99,bg:'#e8f0fe',st:'#e05e00'}],total:'$11.48',address:'42 Park Street, Apt 3, Mumbai 400001',payment:'Card ending 4242',delivery:'Express delivery',steps:[{label:'Order placed',desc:'Your order was confirmed',time:'Apr 15, 10:02 AM',done:true},{label:'Pharmacy preparing',desc:'Pharmacist verified & packed your items',time:'Apr 15, 10:18 AM',done:true},{label:'Out for delivery',desc:'Delivery partner picked up your order',time:'Apr 15, 11:40 AM',done:true},{label:'Delivered',desc:'Order delivered to your address',time:'Apr 15, 12:55 PM',done:true}]},
+  'MC-2024-001':{id:'MC-2024-001',date:'Apr 15, 2026',status:'delivered',products:[{name:'Paracetamol 500mg',pack:'Strip of 10 tablets',qty:2,price:2.49,bg:'#edfdf8',st:'#38D9A9'},{name:'Vitamin C 1000mg',pack:'60 effervescent tabs',qty:1,price:8.99,bg:'#edfdf8',st:'#38D9A9'}],total:'$11.48',address:'42 Park Street, Apt 3, Mumbai 400001',payment:'Card ending 4242',delivery:'Express delivery',steps:[{label:'Order placed',desc:'Your order was confirmed',time:'Apr 15, 10:02 AM',done:true},{label:'Pharmacy preparing',desc:'Pharmacist verified & packed your items',time:'Apr 15, 10:18 AM',done:true},{label:'Out for delivery',desc:'Delivery partner picked up your order',time:'Apr 15, 11:40 AM',done:true},{label:'Delivered',desc:'Order delivered to your address',time:'Apr 15, 12:55 PM',done:true}]},
   'MC-2024-002':{id:'MC-2024-002',date:'Apr 10, 2026',status:'transit',products:[{name:'Blood pressure monitor',pack:'Automatic, arm cuff',qty:1,price:49.99,bg:'#edfdf8',st:'#38D9A9'}],total:'$49.99',address:'42 Park Street, Apt 3, Mumbai 400001',payment:'UPI (GPay)',delivery:'Standard delivery',steps:[{label:'Order placed',desc:'Your order was confirmed',time:'Apr 10, 2:15 PM',done:true},{label:'Pharmacy preparing',desc:'Pharmacist verified & packed your items',time:'Apr 10, 3:00 PM',done:true},{label:'Out for delivery',desc:'Delivery partner picked up your order',time:'Apr 10, 5:30 PM',done:true},{label:'Delivered',desc:'Estimated by Apr 11, 12:00 PM',time:'Pending',done:false}]},
-  'MC-2024-003':{id:'MC-2024-003',date:'Apr 3, 2026',status:'processing',products:[{name:'Omega-3 Fish Oil',pack:'60 capsules',qty:1,price:14.99,bg:'#e8f0fe',st:'#e05e00'},{name:'Vitamin D3 2000IU',pack:'90 softgel capsules',qty:1,price:12.49,bg:'#e8f0fe',st:'#e05e00'}],total:'$27.48',address:'42 Park Street, Apt 3, Mumbai 400001',payment:'Cash on delivery',delivery:'Free delivery',steps:[{label:'Order placed',desc:'Your order was confirmed',time:'Apr 3, 9:10 AM',done:true},{label:'Pharmacy preparing',desc:'Pharmacist is verifying your items',time:'In progress',done:true},{label:'Out for delivery',desc:'Waiting for pharmacy to complete',time:'Pending',done:false},{label:'Delivered',desc:'Estimated by Apr 6, 12:00 PM',time:'Pending',done:false}]},
-  'MC-2024-004':{id:'MC-2024-004',date:'Mar 28, 2026',status:'delivered',products:[{name:'First aid kit 42-pc',pack:'Complete family kit',qty:1,price:19.99,bg:'#e8f0fe',st:'#38D9A9'},{name:'Antiseptic solution',pack:'500ml bottle',qty:1,price:5.99,bg:'#e8f0fe',st:'#38D9A9'}],total:'$25.98',address:'42 Park Street, Apt 3, Mumbai 400001',payment:'Card ending 4242',delivery:'Express delivery',steps:[{label:'Order placed',desc:'Your order was confirmed',time:'Mar 28, 8:00 AM',done:true},{label:'Pharmacy preparing',desc:'Pharmacist verified & packed your items',time:'Mar 28, 8:25 AM',done:true},{label:'Out for delivery',desc:'Delivery partner picked up your order',time:'Mar 28, 9:50 AM',done:true},{label:'Delivered',desc:'Order delivered to your address',time:'Mar 28, 11:20 AM',done:true}]}
+  'MC-2024-003':{id:'MC-2024-003',date:'Apr 3, 2026',status:'processing',products:[{name:'Omega-3 Fish Oil',pack:'60 capsules',qty:1,price:14.99,bg:'#edfdf8',st:'#38D9A9'},{name:'Vitamin D3 2000IU',pack:'90 softgel capsules',qty:1,price:12.49,bg:'#edfdf8',st:'#38D9A9'}],total:'$27.48',address:'42 Park Street, Apt 3, Mumbai 400001',payment:'Cash on delivery',delivery:'Free delivery',steps:[{label:'Order placed',desc:'Your order was confirmed',time:'Apr 3, 9:10 AM',done:true},{label:'Pharmacy preparing',desc:'Pharmacist is verifying your items',time:'In progress',done:true},{label:'Out for delivery',desc:'Waiting for pharmacy to complete',time:'Pending',done:false},{label:'Delivered',desc:'Estimated by Apr 6, 12:00 PM',time:'Pending',done:false}]},
+  'MC-2024-004':{id:'MC-2024-004',date:'Mar 28, 2026',status:'delivered',products:[{name:'First aid kit 42-pc',pack:'Complete family kit',qty:1,price:19.99,bg:'#edfdf8',st:'#38D9A9'},{name:'Antiseptic solution',pack:'500ml bottle',qty:1,price:5.99,bg:'#edfdf8',st:'#38D9A9'}],total:'$25.98',address:'42 Park Street, Apt 3, Mumbai 400001',payment:'Card ending 4242',delivery:'Express delivery',steps:[{label:'Order placed',desc:'Your order was confirmed',time:'Mar 28, 8:00 AM',done:true},{label:'Pharmacy preparing',desc:'Pharmacist verified & packed your items',time:'Mar 28, 8:25 AM',done:true},{label:'Out for delivery',desc:'Delivery partner picked up your order',time:'Mar 28, 9:50 AM',done:true},{label:'Delivered',desc:'Order delivered to your address',time:'Mar 28, 11:20 AM',done:true}]}
 };
 
 function viewOrderDetail(orderId){
@@ -2202,8 +2186,8 @@ function viewOrderDetail(orderId){
   <div style="display:flex;gap:10px;flex-wrap:wrap;">
     <button class="btn bb2" style="padding:9px 20px;" onclick="toast('Downloading invoice...')">Download invoice</button>
     <button class="btn" style="background:var(--g100);color:var(--g800);padding:9px 20px;" onclick="goPage('contact')">Need help?</button>
-    ${o.status==='delivered'?`<button class="btn" style="background:#fee2e2;color:var(--red);padding:9px 20px;" onclick="toast('Return request submitted!')">Request return</button>`:''}
-    ${o.status!=='delivered'&&o.status!=='cancelled'?`<button class="btn" style="background:#fee2e2;color:var(--red);padding:9px 20px;" onclick="toast('Cancellation requested. Our team will confirm shortly.')">Cancel order</button>`:''}
+    ${o.status==='delivered'?`<button class="btn" style="background:#e3f2fd;color:var(--red);padding:9px 20px;" onclick="toast('Return request submitted!')">Request return</button>`:''}
+    ${o.status!=='delivered'&&o.status!=='cancelled'?`<button class="btn" style="background:#e3f2fd;color:var(--red);padding:9px 20px;" onclick="toast('Cancellation requested. Our team will confirm shortly.')">Cancel order</button>`:''}
   </div>`;
 }
 
@@ -2454,7 +2438,7 @@ function placeOrder(){
 // AI HEALTH + DOCTOR CONSULTATION SYSTEM
 // ═══════════════════════════════════════════════════
 let aiMode='ai', sessionSeconds=0, sessionInterval=null;
-let currentDoc={ini:'AM',name:'Dr. Arjun Mehta',spec:'General Physician',color:'#1a1a1a'};
+let currentDoc={ini:'AM',name:'Dr. Arjun Mehta',spec:'General Physician',color:'#0B1020'};
 let aiRespIdx=0, docRespIdx=0;
 
 // -- KNOWLEDGE BASE --
@@ -2576,7 +2560,7 @@ function sendAiMsg(txt){
     bd.className='msg bot';
     const now2=new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
     const formatted=response.replace(/\n/g,'<br>').replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>');
-    bd.innerHTML=`<div class="mav" style="background:linear-gradient(135deg,#38D9A9,#38D9A9);font-size:14px;">🤖</div>
+    bd.innerHTML=`<div class="mav" style="background:linear-gradient(135deg,#1E88E5,#38D9A9);font-size:14px;">🤖</div>
     <div>
       <div class="mbubble" style="background:var(--bp);border:1px solid var(--bl);color:var(--g800);">${formatted}</div>
       <div class="mtime">NovaRX AI · ${now2}</div>
@@ -2595,7 +2579,7 @@ function addDoctorSuggestion(msgs){
   d.style.cssText='margin:8px 18px;background:white;border:1px solid var(--bl);border-radius:var(--r);padding:14px;';
   d.innerHTML=`<div style="font-size:12px;font-weight:600;color:var(--bd);margin-bottom:10px;">👨‍⚕️ Recommended doctors available now</div>
   <div style="display:flex;gap:8px;flex-wrap:wrap;">
-    <button onclick="switchAiMode('doc');selectDocConsult('AM','Dr. Arjun Mehta','General Physician','#1a1a1a')" style="display:flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid var(--g200);border-radius:var(--rs);background:white;cursor:pointer;font-family:var(--ff);font-size:12px;">
+    <button onclick="switchAiMode('doc');selectDocConsult('AM','Dr. Arjun Mehta','General Physician','#0B1020')" style="display:flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid var(--g200);border-radius:var(--rs);background:white;cursor:pointer;font-family:var(--ff);font-size:12px;">
       <div style="width:28px;height:28px;border-radius:50%;background:#0B1020;color:white;font-size:11px;font-family:var(--fd);display:flex;align-items:center;justify-content:center;">AM</div>
       <div style="text-align:left;"><div style="font-weight:500;color:var(--g800);">Dr. Arjun Mehta</div><div style="color:var(--g400);font-size:10px;">General · $15 · Available</div></div>
     </button>
@@ -2636,7 +2620,7 @@ function sendDocMsg(txt){
     const bd=document.createElement('div');
     bd.className='msg bot';
     bd.innerHTML=`<div class="mav" style="background:${currentDoc.color};font-family:var(--fd);font-size:13px;color:white;">${currentDoc.ini}</div>
-    <div><div class="mbubble" style="background:#f0f7ff;border:1px solid var(--bl);color:var(--g800);">${formatted}</div>
+    <div><div class="mbubble" style="background:#edfdf8;border:1px solid var(--bl);color:var(--g800);">${formatted}</div>
     <div class="mtime">${currentDoc.name} · ${now2}</div></div>`;
     msgs.appendChild(bd);msgs.scrollTop=msgs.scrollHeight;
   },delay);
@@ -2671,7 +2655,7 @@ function selectDocConsult(ini,name,spec,color){
     greeting.className='msg bot';
     const now=new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
     greeting.innerHTML=`<div class="mav" style="background:${color};font-family:var(--fd);font-size:13px;color:white;">${ini}</div>
-    <div><div class="mbubble" style="background:#f0f7ff;border:1px solid var(--bl);color:var(--g800);">
+    <div><div class="mbubble" style="background:#edfdf8;border:1px solid var(--bl);color:var(--g800);">
       <strong style="color:var(--bd);display:block;margin-bottom:6px;">Hello! I'm ${name} 👋</strong>
       I'm a ${spec} here to help you today. Please share your main concern and I'll guide you through a proper assessment.
     </div><div class="mtime">${name} · ${now}</div></div>`;
@@ -2689,7 +2673,7 @@ function endConsultation(){
   const bd=document.createElement('div');
   bd.className='msg bot';
   bd.innerHTML=`<div class="mav" style="background:${currentDoc.color};font-family:var(--fd);font-size:13px;color:white;">${currentDoc.ini}</div>
-  <div><div class="mbubble" style="background:#f0f7ff;border:1px solid var(--bl);color:var(--g800);">
+  <div><div class="mbubble" style="background:#edfdf8;border:1px solid var(--bl);color:var(--g800);">
     <strong style="color:var(--bd);display:block;margin-bottom:6px;">Consultation ended</strong>
     Thank you for consulting with me. Your summary has been saved to your NovaRX profile.<br><br>
     <strong>Session ID:</strong> CONS-${Math.floor(10000+Math.random()*90000)}<br>
@@ -2707,7 +2691,7 @@ function newAiChat(){
   const now=new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
   const d=document.createElement('div');
   d.className='msg bot';
-  d.innerHTML=`<div class="mav" style="background:linear-gradient(135deg,#38D9A9,#38D9A9);font-size:14px;">🤖</div>
+  d.innerHTML=`<div class="mav" style="background:linear-gradient(135deg,#1E88E5,#38D9A9);font-size:14px;">🤖</div>
   <div><div class="mbubble" style="background:var(--bp);border:1px solid var(--bl);color:var(--g800);">
     <strong style="color:var(--bd);display:block;margin-bottom:6px;">New chat started 👋</strong>
     How can I help you with your health today? Describe your symptoms or ask any health question.
