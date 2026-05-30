@@ -2249,7 +2249,7 @@ loadProducts();rNotifs();updateNotifBadge();initDropdowns();
 // Token se user restore karo — agar valid token hai toh user aur cart load karo
 (async function initAuth(){
   const token = localStorage.getItem('novarx_token');
-  if(!token){ cart=[]; upCart(); updateNavForUser(); return; }
+  if(!token){ cart=[]; upCart(); rCart(); updateNavForUser(); return; }
   try{
     const r = await fetch('https://novarx.onrender.com/api/auth/me', {
       headers:{'Authorization':'Bearer '+token}
@@ -2261,15 +2261,17 @@ loadProducts();rNotifs();updateNotifBadge();initDropdowns();
         wishlist = d.user.wishlist || [];
         updateNavForUser();
         await loadCart();
+        await loadWishlist();
+        await loadOrders();
         return;
       }
     }
     // Token invalid — clear everything
     localStorage.removeItem('novarx_token');
     localStorage.removeItem('novarx_user');
-    cart=[]; upCart(); updateNavForUser();
+    cart=[]; upCart(); rCart(); updateNavForUser();
   }catch(e){
-    cart=[]; upCart(); updateNavForUser();
+    cart=[]; upCart(); rCart(); updateNavForUser();
   }
 })();
 
