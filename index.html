@@ -2200,9 +2200,34 @@ function resetPassword(){
 }
 
 // -- INIT --
-loadProducts();updateNavForUser();rNotifs();updateNotifBadge();initDropdowns();
-// Cart sirf tab load karo jab token ho aur user logged in ho
-if(localStorage.getItem('novarx_token') && currentUser){ loadCart(); } else { cart=[]; upCart(); }
+loadProducts();rNotifs();updateNotifBadge();initDropdowns();
+
+// Token se user restore karo — agar valid token hai toh user aur cart load karo
+(async function initAuth(){
+  const token = localStorage.getItem('novarx_token');
+  if(!token){ cart=[]; upCart(); updateNavForUser(); return; }
+  try{
+    const r = await fetch('https://novarx.onrender.com/api/auth/me', {
+      headers:{'Authorization':'Bearer '+token}
+    });
+    if(r.ok){
+      const d = await r.json();
+      if(d.user){
+        currentUser = d.user;
+        wishlist = d.user.wishlist || [];
+        updateNavForUser();
+        await loadCart();
+        return;
+      }
+    }
+    // Token invalid — clear everything
+    localStorage.removeItem('novarx_token');
+    localStorage.removeItem('novarx_user');
+    cart=[]; upCart(); updateNavForUser();
+  }catch(e){
+    cart=[]; upCart(); updateNavForUser();
+  }
+})();
 
 ['medicine','healthcare','doctor','ai','offers','about','signin','register','profile','careers','privacy','contact','checkout','forgot','terms'].forEach(id=>{
   const el=document.getElementById('footer-'+id);
@@ -2650,3 +2675,19 @@ loadCart();
 </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
