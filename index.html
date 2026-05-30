@@ -1608,10 +1608,19 @@ function upCart(){
 }
 // -- WISHLIST --
 function tw(id){
+  if(!currentUser){toast('Please sign in to save wishlist!');goPage('signin');return;}
   if(wishlist.includes(id)){wishlist=wishlist.filter(x=>x!==id);toast('Removed from wishlist');}
   else{wishlist.push(id);toast('Added to wishlist');}
-  document.querySelectorAll('#w'+id).forEach(b=>b.classList.toggle('on',wishlist.includes(id)));
-  if(currentUser){currentUser.wishlist=wishlist;saveUser();}
+  document.querySelectorAll('[id="w'+id+'"]').forEach(b=>b.classList.toggle('on',wishlist.includes(id)));
+  // Backend pe save karo
+  const token=localStorage.getItem('novarx_token');
+  if(token){
+    fetch(API_URL+'/api/wishlist',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Authorization':'Bearer '+token},
+      body:JSON.stringify({wishlist})
+    }).catch(e=>console.error('Wishlist save error:',e));
+  }
 }
 
 // -- AUTH --
@@ -1718,7 +1727,42 @@ function loginUser(acct,isGuest){
   goPage('profile');
   switchProfileTab('overview');
   toast('Welcome back, '+acct.firstName+'! 👋');
-  if(!isGuest){ loadCart(); }
+  if(!isGuest){
+    loadCart();
+    loadWishlist();
+    loadOrders();
+  }
+}
+
+async function loadWishlist(){
+  const token=localStorage.getItem('novarx_token');
+  if(!token) return;
+  try{
+    const r=await fetch(API_URL+'/api/wishlist',{headers:{'Authorization':'Bearer '+token}});
+    const d=await r.json();
+    if(d.wishlist){ wishlist=d.wishlist; }
+  }catch(e){ console.error('Load wishlist error:',e); }
+}
+
+async function loadOrders(){
+  const token=localStorage.getItem('novarx_token');
+  if(!token) return;
+  try{
+    const r=await fetch(API_URL+'/api/orders',{headers:{'Authorization':'Bearer '+token}});
+    const d=await r.json();
+    if(d.orders && currentUser){
+      currentUser.orders=d.orders.map(o=>({
+        id:'#'+o.id.slice(0,8).toUpperCase(),
+        date:new Date(o.createdAt).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}),
+        status: o.status==='PLACED'?'processing':o.status==='DELIVERED'?'delivered':o.status==='CANCELLED'?'cancelled':'transit',
+        products:o.items.map(i=>i.product.name),
+        total:'$'+parseFloat(o.totalAmount).toFixed(2),
+        address:o.deliveryAddress||'',
+        payment:o.paymentMethod||'card',
+        delivery:'Standard delivery'
+      }));
+    }
+  }catch(e){ console.error('Load orders error:',e); }
 }
 
 function doSignOut(){
@@ -2360,33 +2404,49 @@ function placeOrder(){
   // simulate processing
   const btn=document.querySelector('#coCardPayment button[onclick="placeOrder()"]');
   if(btn){btn.textContent='Processing...';btn.disabled=true;}
-  setTimeout(()=>{
-    const orderId='MC-2026-'+String(Math.floor(1000+Math.random()*9000));
-    // Save order to user account
-    const newOrder={
-      id:orderId,
-      date:new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}),
-      status:'processing',
-      products:cart.map(i=>i.name),
-      total:'$'+cart.reduce((s,x)=>s+x.price*x.qty,0).toFixed(2),
-      address:document.getElementById('coAddr').value+', '+document.getElementById('coCity').value,
-      payment:selectedPay==='card'?'Card ending '+document.getElementById('coCardNum').value.slice(-4):selectedPay==='upi'?'UPI Payment':'Cash on delivery',
-      delivery:selectedDel==='del1'?'Express delivery':selectedDel==='del2'?'Standard delivery':'Free delivery'
-    };
-    if(currentUser){
-      if(!currentUser.orders)currentUser.orders=[];
-      currentUser.orders.unshift(newOrder);
-      saveUser();
+  const token=localStorage.getItem('novarx_token');
+  const orderItems=cart.map(i=>({productId:i.productId,quantity:i.qty,price:i.price}));
+  const totalAmount=cart.reduce((s,x)=>s+x.price*x.qty,0)+deliveryFee;
+  const deliveryAddress=document.getElementById('coAddr').value+', '+document.getElementById('coCity').value;
+  const paymentMethod=selectedPay;
+
+  fetch(API_URL+'/api/orders',{
+    method:'POST',
+    headers:{'Content-Type':'application/json','Authorization':'Bearer '+token},
+    body:JSON.stringify({items:orderItems,totalAmount,deliveryAddress,paymentMethod})
+  }).then(r=>r.json()).then(d=>{
+    if(d.order){
+      const orderId='#'+d.order.id.slice(0,8).toUpperCase();
+      if(currentUser){
+        if(!currentUser.orders)currentUser.orders=[];
+        currentUser.orders.unshift({
+          id:orderId,
+          date:new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}),
+          status:'processing',
+          products:cart.map(i=>i.name),
+          total:'$'+totalAmount.toFixed(2),
+          address:deliveryAddress,
+          payment:paymentMethod==='card'?'Card ending '+document.getElementById('coCardNum').value.slice(-4):paymentMethod==='upi'?'UPI Payment':'Cash on delivery',
+          delivery:selectedDel==='del1'?'Express delivery':selectedDel==='del2'?'Standard delivery':'Free delivery'
+        });
+      }
+      document.getElementById('confirmedOrderId').textContent='Order '+orderId;
+      document.getElementById('checkoutForm').style.display='none';
+      document.getElementById('checkoutConfirmed').style.display='block';
+      if(!document.getElementById('footer-checkout-confirm').innerHTML.trim())
+        document.getElementById('footer-checkout-confirm').innerHTML=footerHTML();
+      window.scrollTo({top:0,behavior:'smooth'});
+      cart=[];upCart();rCart();
+      if(btn){btn.textContent='Place order →';btn.disabled=false;}
+    } else {
+      if(btn){btn.textContent='Place order →';btn.disabled=false;}
+      toast('Order failed. Please try again.');
     }
-    document.getElementById('confirmedOrderId').textContent='Order #'+orderId;
-    document.getElementById('checkoutForm').style.display='none';
-    document.getElementById('checkoutConfirmed').style.display='block';
-    if(!document.getElementById('footer-checkout-confirm').innerHTML.trim())
-      document.getElementById('footer-checkout-confirm').innerHTML=footerHTML();
-    window.scrollTo({top:0,behavior:'smooth'});
-    cart=[];upCart();rCart();
+  }).catch(e=>{
+    console.error('Place order error:',e);
     if(btn){btn.textContent='Place order →';btn.disabled=false;}
-  },1400);
+    toast('Order failed. Please try again.');
+  });
 }
 // ═══════════════════════════════════════════════════
 // AI HEALTH + DOCTOR CONSULTATION SYSTEM
@@ -2675,19 +2735,3 @@ loadCart();
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
