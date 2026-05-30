@@ -1422,7 +1422,7 @@ const sampleOrders=[
 // -- STATE --
 let cart=[],hCat='all',mCat='all',mQ='',hQ='',wishlist=[],rxFiles=[];
 let currentUser=null;
-let accounts=JSON.parse(sessionStorage.getItem('mc_accounts')||'[]');
+let accounts=JSON.parse(localStorage.getItem('mc_accounts')||'[]');
 let profileTab='overview';
 
 // -- PRODUCT CARD --
@@ -1499,7 +1499,7 @@ function specF(s,el){document.querySelectorAll('#specBar .fpill').forEach(x=>x.c
 
 // - CART -
 async function addC(id){
-  const token = sessionStorage.getItem('novarx_token');
+  const token = localStorage.getItem('novarx_token');
   if(!token){ toast('Please sign in to add items to cart!'); goPage('signin'); return; }
   const p = prods.find(x=>x.id===id);
   try{
@@ -1517,7 +1517,7 @@ async function addC(id){
 }
 
 async function rmC(id){
-  const token = sessionStorage.getItem('novarx_token');
+  const token = localStorage.getItem('novarx_token');
   if(!token) return;
   const item = cart.find(x=>x.productId===id);
   if(!item) return;
@@ -1530,7 +1530,7 @@ async function rmC(id){
 }
 
 async function chQty(id,d){
-  const token = sessionStorage.getItem('novarx_token');
+  const token = localStorage.getItem('novarx_token');
   if(!token) return;
   const item = cart.find(x=>x.productId===id);
   if(!item) return;
@@ -1546,7 +1546,7 @@ async function chQty(id,d){
 }
 
 async function loadCart(){
-  const token = sessionStorage.getItem('novarx_token');
+  const token = localStorage.getItem('novarx_token');
   if(!token){ cart=[]; upCart(); return; }
   try{
     const res = await fetch(API_URL+'/api/cart',{
@@ -1613,7 +1613,7 @@ function tw(id){
   else{wishlist.push(id);toast('Added to wishlist');}
   document.querySelectorAll('[id="w'+id+'"]').forEach(b=>b.classList.toggle('on',wishlist.includes(id)));
   // Backend pe save karo
-  const token=sessionStorage.getItem('novarx_token');
+  const token=localStorage.getItem('novarx_token');
   if(token){
     fetch(API_URL+'/api/wishlist',{
       method:'POST',
@@ -1660,13 +1660,13 @@ async function doRegister(){
     btn.disabled = false;
 
     if(data.token){
-      // Save token + user to sessionStorage
-      sessionStorage.setItem('novarx_token', data.token);
-      sessionStorage.setItem('novarx_user', JSON.stringify(data.user));
+      // Save token + user to localStorage
+      localStorage.setItem('novarx_token', data.token);
+      localStorage.setItem('novarx_user', JSON.stringify(data.user));
       // Also keep local accounts in sync
       const acct={email, password:pass, firstName:fn, lastName:ln, phone, joined:new Date().toLocaleDateString('en-US',{month:'short',year:'numeric'}), wishlist:[], orders:[]};
       accounts.push(acct);
-      sessionStorage.setItem('mc_accounts', JSON.stringify(accounts));
+      localStorage.setItem('mc_accounts', JSON.stringify(accounts));
       document.getElementById('signInSuccess').classList.add('show');
       toast('✅ Account created! Please sign in.');
       goPage('signin');
@@ -1699,8 +1699,8 @@ async function doSignIn(){
     const data=await res.json();
     btn.textContent='Sign in to NovaRX';btn.disabled=false;
     if(data.token){
-      sessionStorage.setItem('novarx_token',data.token);
-      sessionStorage.setItem('novarx_user',JSON.stringify(data.user));
+      localStorage.setItem('novarx_token',data.token);
+      localStorage.setItem('novarx_user',JSON.stringify(data.user));
       const acct={email:data.user.email,firstName:data.user.firstName,lastName:data.user.lastName||'',phone:data.user.phone||'',joined:new Date().toLocaleDateString('en-US',{month:'short',year:'numeric'}),wishlist:[],orders:[]};
       loginUser(acct,false);
     } else {
@@ -1735,7 +1735,7 @@ function loginUser(acct,isGuest){
 }
 
 async function loadWishlist(){
-  const token=sessionStorage.getItem('novarx_token');
+  const token=localStorage.getItem('novarx_token');
   if(!token) return;
   try{
     const r=await fetch(API_URL+'/api/wishlist',{headers:{'Authorization':'Bearer '+token}});
@@ -1745,7 +1745,7 @@ async function loadWishlist(){
 }
 
 async function loadOrders(){
-  const token=sessionStorage.getItem('novarx_token');
+  const token=localStorage.getItem('novarx_token');
   if(!token) return;
   try{
     const r=await fetch(API_URL+'/api/orders',{headers:{'Authorization':'Bearer '+token}});
@@ -1768,8 +1768,8 @@ async function loadOrders(){
 function doSignOut(){
   currentUser=null;wishlist=[];
   cart=[];                              
-  sessionStorage.removeItem('novarx_token');
-  sessionStorage.removeItem('novarx_user');
+  localStorage.removeItem('novarx_token');
+  localStorage.removeItem('novarx_user');
   upCart();rCart();
   updateNavForUser();
   goPage('home');
@@ -1802,7 +1802,7 @@ function updateNavForUser(){
 function saveUser(){
   if(!currentUser||currentUser.isGuest)return;
   const idx=accounts.findIndex(a=>a.email===currentUser.email);
-  if(idx>=0){accounts[idx]=currentUser;sessionStorage.setItem('mc_accounts',JSON.stringify(accounts));}
+  if(idx>=0){accounts[idx]=currentUser;localStorage.setItem('mc_accounts',JSON.stringify(accounts));}
 }
 
 function requireLogin(target){
@@ -2235,7 +2235,7 @@ function resetPassword(){
   if(np!==np2){e2.textContent='Passwords do not match.';return;}
   const email=document.getElementById('forgotSentTo').textContent;
   const idx=accounts.findIndex(a=>a.email===email);
-  if(idx>=0){accounts[idx].password=np;sessionStorage.setItem('mc_accounts',JSON.stringify(accounts));}
+  if(idx>=0){accounts[idx].password=np;localStorage.setItem('mc_accounts',JSON.stringify(accounts));}
   toast('Password reset successfully! Please sign in.');
   document.getElementById('forgotStep2').style.display='none';
   document.getElementById('forgotStep1').style.display='block';
@@ -2248,7 +2248,7 @@ loadProducts();rNotifs();updateNotifBadge();initDropdowns();
 
 // Token se user restore karo — agar valid token hai toh user aur cart load karo
 (async function initAuth(){
-  const token = sessionStorage.getItem('novarx_token');
+  const token = localStorage.getItem('novarx_token');
   if(!token){ cart=[]; upCart(); rCart(); updateNavForUser(); return; }
   try{
     const r = await fetch('https://novarx.onrender.com/api/auth/me', {
@@ -2267,8 +2267,8 @@ loadProducts();rNotifs();updateNotifBadge();initDropdowns();
       }
     }
     // Token invalid — clear everything
-    sessionStorage.removeItem('novarx_token');
-    sessionStorage.removeItem('novarx_user');
+    localStorage.removeItem('novarx_token');
+    localStorage.removeItem('novarx_user');
     cart=[]; upCart(); rCart(); updateNavForUser();
   }catch(e){
     cart=[]; upCart(); rCart(); updateNavForUser();
@@ -2406,7 +2406,7 @@ function placeOrder(){
   // simulate processing
   const btn=document.querySelector('#coCardPayment button[onclick="placeOrder()"]');
   if(btn){btn.textContent='Processing...';btn.disabled=true;}
-  const token=sessionStorage.getItem('novarx_token');
+  const token=localStorage.getItem('novarx_token');
   const orderItems=cart.map(i=>({productId:i.productId,quantity:i.qty,price:i.price}));
   const totalAmount=cart.reduce((s,x)=>s+x.price*x.qty,0)+deliveryFee;
   const deliveryAddress=document.getElementById('coAddr').value+', '+document.getElementById('coCity').value;
