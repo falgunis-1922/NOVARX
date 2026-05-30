@@ -1717,8 +1717,8 @@ function loginUser(acct,isGuest){
   updateNavForUser();
   goPage('profile');
   switchProfileTab('overview');
-  toast('Welcome, '+acct.firstName+'!');
-  if(!isGuest) loadCart();
+  toast('Welcome back, '+acct.firstName+'! 👋');
+  if(!isGuest){ loadCart(); }
 }
 
 function doSignOut(){
@@ -2200,7 +2200,9 @@ function resetPassword(){
 }
 
 // -- INIT --
-loadProducts();updateNavForUser();rNotifs();updateNotifBadge();initDropdowns();loadCart();
+loadProducts();updateNavForUser();rNotifs();updateNotifBadge();initDropdowns();
+// Cart sirf tab load karo jab token ho aur user logged in ho
+if(localStorage.getItem('novarx_token') && currentUser){ loadCart(); } else { cart=[]; upCart(); }
 
 ['medicine','healthcare','doctor','ai','offers','about','signin','register','profile','careers','privacy','contact','checkout','forgot','terms'].forEach(id=>{
   const el=document.getElementById('footer-'+id);
