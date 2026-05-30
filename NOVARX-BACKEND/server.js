@@ -30,7 +30,7 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Server error' })
 })
  
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 10000
 app.listen(PORT, () => {
   console.log(`✅ NovaRX server running on http://localhost:${PORT}`)
 })
